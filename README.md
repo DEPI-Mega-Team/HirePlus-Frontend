@@ -1,54 +1,73 @@
-# React + TypeScript + Vite
+# HirePlus - AI-Powered Job Search Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Overview
 
-Currently, two official plugins are available:
+**HirePlus** is an AI-driven platform that revolutionizes job searching and career development. Combining intelligent tracking, predictive analytics, and personalized feedback, it empowers users to navigate their career journey with confidence.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## ✨ Key Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 📋 Smart Application Management
+- Track job applications with status updates (Applied/Interviewing/Offered)
+- Set reminders for follow-ups and deadlines
+- Visual progress dashboard with analytics
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### 🔍 AI-Powered Job Matching
+- ML-driven recommendations based on:
+  - Skills/experience analysis
+  - Market demand trends
+  - Company culture matching
+- Real-time salary benchmarking
+
+### 📄 Intelligent Resume Optimization
+- AI analysis of resume content
+- ATS compatibility scoring
+- Skills gap identification
+- Automated improvement suggestions
+
+### 💬 AI Interview Coach
+- Mock interview simulations
+- Real-time speech analysis
+- Performance feedback with improvement areas
+- Common question practice bank
+
+### 📊 Market Intelligence Hub
+- Interactive job market trends
+- Skill demand heatmaps
+- Company growth analytics
+- Industry-specific insights
+
+## 🛠 Tech Stack
+
+**Core Framework**  
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+
+**Tooling**  
+![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+
+**Styling**  
+![CSS Modules](https://img.shields.io/badge/CSS_Modules-000000?style=for-the-badge&logo=css3&logoColor=1572B6)
+
+## 🏁 Getting Started
+
+### Prerequisites
+- Node.js ≥16.x
+- npm ≥9.x
+
+Configuration
+- Create .env file
+
+Running
+```bash
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+### Installation
+```bash
+git clone https://github.com/yourusername/HirePlus-Frontend.git
+cd HirePlus-Frontend
+npm install
 ```
