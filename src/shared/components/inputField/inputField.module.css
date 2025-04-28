@@ -1,0 +1,21 @@
+.inputFieldContainer {
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    gap:.5rem;
+}
+
+.inputField {
+    padding: 1.2rem 1.6rem;
+    border: 0.1rem solid var(--color-border);
+    border-radius: 1rem;
+    outline: none;
+    width: 100%;
+}
+
+.label {
+    font-size:1.6rem;
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family);
+    color: var(--color-text)
+}

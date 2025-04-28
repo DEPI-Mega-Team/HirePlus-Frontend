@@ -1,0 +1,24 @@
+.signup-container {
+    display: flex;
+    align-items: center;
+
+}
+
+.signup-container__formContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+}
+
+@media (max-width: 768px) {
+    .signup-container {
+        justify-content: center;
+        height: 100vh;
+    }
+    .signup-container__formContainer {
+         width: 100%;
+    }
+
+}
+
