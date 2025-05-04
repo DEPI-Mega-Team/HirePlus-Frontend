@@ -13,7 +13,7 @@ const BaseImage:React.FC<baseImageProps> = ({person1, person2}) => {
         <>
             <div className={`${styles['login-container__baseImage']} d-none`}>
                 <div className={styles['login-container__baseImage--logoContainer']}>
-                    <Logo />
+                    <Logo position="absolute" />
                 </div>
                 <div className={styles['login-container__baseImage--imgContainer']}>
                     <img className={`${styles['login-container__baseImage--img']} ${styles['img1']}`} src={person1} alt="" />

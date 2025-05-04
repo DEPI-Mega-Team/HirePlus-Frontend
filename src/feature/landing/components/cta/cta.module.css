@@ -1,0 +1,59 @@
+.cta {
+    color: white;
+    height: 100vh;
+    position: relative;
+}
+
+
+.cta-bg {
+    width: 90%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.cta-title {
+    font-size: 5rem;
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family);
+
+}
+
+.cta-description {  
+    font-size: 2rem;
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family);
+}
+
+.cta-container {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.cta-button-container {
+    width: fit-content;
+}
+
+.cta-img {
+    width: auto;
+    object-fit: contain;
+    position: absolute;
+    bottom: 20%;
+    right: 0;
+}
+
+.cta-content {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+}

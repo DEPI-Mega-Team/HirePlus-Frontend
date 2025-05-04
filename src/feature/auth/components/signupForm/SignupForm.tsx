@@ -7,7 +7,9 @@ import styles from "./signupForm.module.css";
 import LineSeparator from "@/shared/components/lineSeparator/LineSeparator";
 import googleIcon from "@/assets/icons/Google.svg";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const LoginForm = () => {
+    const navigate = useNavigate();
 
     const { setAccountType } = useUser() as UserContextType;
 

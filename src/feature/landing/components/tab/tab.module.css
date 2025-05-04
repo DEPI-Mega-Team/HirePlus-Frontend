@@ -1,0 +1,29 @@
+.tab {
+    position: relative;
+    text-decoration: none;
+    color: var(--color-primary);
+    padding: 1rem 0;
+}
+.tab-active {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--color-primary);
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    opacity: 0;
+
+}
+.tab-title {
+    font-size: 1.6rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-color);
+    font-family: var(--font-family)
+}
+.tab-active__opacity {
+    opacity: 100%;
+    width: 100%;
+    transition: all 0.4s ease-out;
+}

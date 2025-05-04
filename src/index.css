@@ -5,13 +5,17 @@
 
   --color-primary: #293A48;
   --color-secondary: #8497A3;
+  --color-third: #171F27;
+  --color-fourth: #F8F8FD;
+
   --color-gradient-one: #999999;
   --color-gradient-two: #F3F5F6;
   
   --color-border: #d1d1d1;
+  --color-border-secondary: #D6DDEB;
   --color-background: #f5f5f5;
   --color-text: #515B6F;
-  --color-text-secondary: #666;
+  --color-text-secondary: #9DABB5;
   --color-text-placeholder: #999;
   --color-text-error: #d9534f;
   --color-text-success: #5cb85c;
