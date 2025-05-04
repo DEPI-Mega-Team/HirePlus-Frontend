@@ -3,10 +3,13 @@ import LogoImage from "@/assets/logos/logo1.svg"
 import styles from "./logo.module.css"
 
 
-const Logo: React.FC = () => {    
+interface LogoProps {
+    position: 'absolute' | 'relative';
+}
+const Logo: React.FC<LogoProps> = ({position}) => {    
     return  (
         <>
-            <div className={styles['logo']}>
+            <div className={`${styles['logo']} ${styles[position]}`}>
                 <Link to="/">
                     <img src={LogoImage}  alt="Logo" />
                 </Link>

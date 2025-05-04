@@ -1,0 +1,54 @@
+.card {
+    padding: 4rem;
+    background-color: white ;
+    border: .1rem solid var(--color-text-secondary);
+    width: 275px;
+    height: 215px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card:hover {
+    cursor: pointer;
+    background-color: var(--color-primary);
+    color: white;
+    transition: all 0.2s ease;
+}
+
+.card:hover .card-title {
+    color: white;
+    transition: all 0.2s ease;
+}
+
+.card:hover .card-description {
+    color: white;
+    transition: all 0.2s ease;
+}
+
+.card:hover span {
+    filter: invert(100%);
+}
+
+.card-title {
+    font-size: 3rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+}
+
+.card-description {
+    font-size: 1.6rem;
+    color: var(--color-text-secondary);
+
+}
+
+
+.card-description-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.card-description-container span {
+    margin-top: .2rem;
+}

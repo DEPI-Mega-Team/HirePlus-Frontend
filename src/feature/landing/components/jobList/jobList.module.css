@@ -1,0 +1,23 @@
+.job-list {
+    border: 1px solid var(--color-primary);
+    width: 100%;
+    padding: 2rem;
+    font-size: 1.6rem;
+    background-color: white;
+    border: none;
+}
+
+.skill-names{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.job-list-bottom {
+    display: flex;
+    gap: 1rem;
+}
+
+.job-list-top {
+    display: flex;
+    gap: 1rem;
+}

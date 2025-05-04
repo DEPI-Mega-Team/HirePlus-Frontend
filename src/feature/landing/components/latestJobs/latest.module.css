@@ -1,0 +1,31 @@
+.latest-container {
+    width: 80%;
+    margin: 0 auto;
+}
+.latest-jobs-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.latest-jobs-container > * {
+    flex-basis: 49%;
+}
+
+
+.latest {
+    background-color: var(--color-fourth);
+    background-image: url('@/assets/imgs/Pattern.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    padding: 8rem 0 ;
+}
+
+.latest-title {
+    font-size: 5rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    font-family: var(--font-family);
+}
