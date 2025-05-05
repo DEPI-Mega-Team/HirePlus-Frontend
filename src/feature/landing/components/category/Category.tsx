@@ -1,4 +1,4 @@
-import Card from "./card/Card";
+import Card from "./categoryCard/Card";
 import styles from './category.module.css'
 
 const Category = () => {

@@ -14,7 +14,7 @@ const Hero = () => {
                             <h1>5000+ Jobs</h1>
                         </div>
                         <div>
-                            <img src={underline} alt="underline" />
+                            <img className={styles['hero-container__underline']} src={underline} alt="underline" />
                         </div>
                         <p className={styles['hero-container__description']}>Great platform for the job seeker that searching for new career heights and passionate about startups.</p>
                     </div>

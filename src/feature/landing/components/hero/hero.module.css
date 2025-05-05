@@ -24,6 +24,12 @@
     z-index: -1;
 }
 
+.hero-container__underline{
+    width: 100%;   
+    object-fit: contain;
+    
+}
+
 .hero-container__man-thumb {
     position: absolute;
     bottom: 0;

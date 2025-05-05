@@ -5,6 +5,8 @@ import { createBrowserRouter } from "react-router";
 import LandingLayout from "@/feature/landing/layout/LandingLayout";
 import Landing from "@/feature/landing/pages/Landing";
 import SignupAction from "@/feature/auth/services/SignupAction";
+import { useRouteError } from "react-router-dom";
+
 const router = createBrowserRouter([
   {
     path:'/',
@@ -33,7 +35,7 @@ const router = createBrowserRouter([
         {
           path: 'signup',
           Component: Signup,
-          action: SignupAction
+          action: SignupAction,
         }
       ]
   }

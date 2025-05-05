@@ -11,7 +11,7 @@ const Header = () => {
        <div className={styles['header-nav__container']}>
           <div className={styles['header-nav__logo']}>
             <Logo position="relative" />
-            <ul className={styles['header-tabs']}>
+            <ul className={`${styles['header-tabs']} d-none`}>
               <li><Tab title="Find Jobs" isActive={url.pathname === '/'} to="/" /></li>
               <li><Tab title="Browse Companies" isActive={url.pathname === '/companies'} to="/companies" /></li>
             </ul>

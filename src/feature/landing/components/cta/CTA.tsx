@@ -5,7 +5,7 @@ import Button from '@/shared/components/button/Button'
 const CTA = () => {
     return (
         <>
-        <div className={styles['cta']}>
+        <div className={`${styles['cta']} d-none`}>
             <img src={ctaBg} alt="cta-bg" className={styles['cta-bg']}  />
             <div className={styles['cta-container']}>
                 <div className={styles['cta-content']}>

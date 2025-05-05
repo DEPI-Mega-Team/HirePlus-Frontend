@@ -11,3 +11,15 @@
     width: 60%;
 }
 
+
+@media (max-width: 768px) {
+    .login-container {
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .login-container__formContainer {
+        width: 100%;
+    }
+
+}

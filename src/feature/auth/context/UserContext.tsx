@@ -1,8 +1,7 @@
 import { createContext, ReactNode, useContext, useState } from "react";
+import { AccountType } from "../types/authTypes";
 
 
-
-export type AccountType = 'jobseeker' | 'company';
 
 export interface UserContextType {
     accountType: AccountType;

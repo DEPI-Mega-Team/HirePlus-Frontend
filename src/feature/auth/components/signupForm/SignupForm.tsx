@@ -6,15 +6,23 @@ import { UserContextType, useUser } from "@/feature/auth/context/UserContext";
 import styles from "./signupForm.module.css";
 import LineSeparator from "@/shared/components/lineSeparator/LineSeparator";
 import googleIcon from "@/assets/icons/Google.svg";
-import { Link } from "react-router-dom";
+import { Link,useSubmit } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+
+
 const LoginForm = () => {
     const navigate = useNavigate();
-
-    const { setAccountType } = useUser() as UserContextType;
+    const submit = useSubmit();
+    const { setAccountType, accountType } = useUser() as UserContextType;
 
     const handleToggle = () => {
         setAccountType((prev) => prev === 'jobseeker' ? 'company' : 'jobseeker');
+    };
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        formData.append('role', accountType);
+        submit(formData, { method: 'post' });
     };
     return (
         <>
@@ -24,10 +32,12 @@ const LoginForm = () => {
                 <p className={styles['form__greeting']}>Get More Opportunities</p>
                 <Button icon={googleIcon} iconPosition="left" label="Sign Up With Google" />
                 <LineSeparator text="Or Sign Up With Email" />
-                <Form method="post" className={styles['form']}>
-                    <InputField id='fullname' label='Full Name' name="fullname" type="text" placeholder="Enter Full Name" />
-                    <InputField id='name' label='Email Address' name="email" type="email" placeholder="Enter Email Address" />
-                    <InputField id='email' label='Password' name="password" type="password" placeholder="Enter Password" />
+                <Form method="post" onSubmit={handleSubmit} className={styles['form']}>
+                    {accountType === 'jobseeker' && <InputField id='fullname' label='Full Name' name="fullname" type="text" placeholder="Enter Full Name" />}
+                    {accountType === 'company' && <InputField id='companyName' label='Company Name' name="companyName" type="text" placeholder="Enter Company Name" />}
+                    {accountType === 'company' && <InputField id='address' label='Address' name="address" type="text" placeholder="Enter Company Address" />}
+                    <InputField id='email' label='Email Address' name="email" type="email" placeholder="Enter Email Address" />
+                    <InputField id='password' label='Password' name="password" type="password" placeholder="Enter Password" />
                     <Button type="submit" filled={true} label="Sign Up" />
 
                 </Form>

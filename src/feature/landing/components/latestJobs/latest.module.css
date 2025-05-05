@@ -10,6 +10,7 @@
 }
 
 .latest-jobs-container > * {
+    flex: 1;
     flex-basis: 49%;
 }
 
