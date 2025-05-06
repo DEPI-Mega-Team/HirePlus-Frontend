@@ -5,7 +5,10 @@ import { createBrowserRouter } from "react-router";
 import LandingLayout from "@/feature/landing/layout/LandingLayout";
 import Landing from "@/feature/landing/pages/Landing";
 import SignupAction from "@/feature/auth/services/SignupAction";
-import { useRouteError } from "react-router-dom";
+import Search from "@/feature/search/pages/Search";
+
+
+
 
 const router = createBrowserRouter([
   {
@@ -20,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: 'companies',
         Component: null
+      },
+      {
+        path: 'search',
+        Component: Search
       }
     ]
   },

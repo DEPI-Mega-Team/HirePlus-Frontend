@@ -23,4 +23,7 @@
 }   
 .header-nav {
     padding: 2rem 0;
+    position: relative;
+    background-color: white;
+    z-index: 2;
 }

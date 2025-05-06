@@ -12,7 +12,9 @@ const mockJobs: Job[] = [
         expiryDate: "2024-01-01",
         experienceLevel: "Senior",
         skillNames: ["React", "Node.js", "JavaScript"],
-        
+        numberOfApplicants: 1,
+        capacity: 20,
+        categoryNames: ['IT', 'Software', 'Engineering'],
     }, 
     {
         id: '2',
@@ -25,6 +27,9 @@ const mockJobs: Job[] = [
         expiryDate: "2024-01-01",
         experienceLevel: "Senior",
         skillNames: ["React", "Node.js", "JavaScript"],
+        numberOfApplicants: 10,
+        capacity: 20,
+        categoryNames: ['IT', 'Software', 'Engineering'],
     },
     {
         id: '3',
@@ -37,6 +42,9 @@ const mockJobs: Job[] = [
         expiryDate: "2024-01-01",
         experienceLevel: "Senior",
         skillNames: ["React", "Node.js", "JavaScript"],
+        numberOfApplicants: 15,
+        capacity: 20,
+        categoryNames: ['IT', 'Software', 'Engineering'],
     },
     {
         id: '4',
@@ -49,7 +57,9 @@ const mockJobs: Job[] = [
         expiryDate: "2024-01-01",
         experienceLevel: "Senior",
         skillNames: ["React", "Node.js", "JavaScript"],
-
+        numberOfApplicants: 20,
+        capacity: 20,
+        categoryNames: ['IT', 'Software', 'Engineering'],
     },
     {
         id: '5',
@@ -62,6 +72,9 @@ const mockJobs: Job[] = [
         expiryDate: "2024-01-01",
         experienceLevel: "Senior",
         skillNames: ["React", "Node.js", "JavaScript"],
+        numberOfApplicants: 0,
+        capacity: 20,
+        categoryNames: ['IT', 'Software', 'Engineering'],
     },
     {
         id: '6',
@@ -74,6 +87,9 @@ const mockJobs: Job[] = [
         expiryDate: "2024-01-01",
         experienceLevel: "Senior",
         skillNames: ["React", "Node.js", "JavaScript"],
+        numberOfApplicants: 10,
+        capacity: 20,
+        categoryNames: ['IT', 'Software', 'Engineering'],
     },
     {
         id: '7',
@@ -86,7 +102,9 @@ const mockJobs: Job[] = [
         expiryDate: "2024-01-01",
         experienceLevel: "Senior",
         skillNames: ["React", "Node.js", "JavaScript"],
-
+        numberOfApplicants: 10,
+        capacity: 20,
+        categoryNames: ['IT', 'Software', 'Engineering'],
     },
     {
         id: '8',
@@ -99,6 +117,9 @@ const mockJobs: Job[] = [
         expiryDate: "2024-01-01",
         experienceLevel: "Senior",
         skillNames: ["React", "Node.js", "JavaScript"],
+        numberOfApplicants: 10,
+        capacity: 20,
+        categoryNames: ['IT', 'Software', 'Engineering'],
     },
     {
         id: '9',
@@ -111,6 +132,9 @@ const mockJobs: Job[] = [
         expiryDate: "2024-01-01",
         experienceLevel: "Senior",
         skillNames: ["React", "Node.js", "JavaScript"],
+        numberOfApplicants: 10,
+        capacity: 20,
+        categoryNames: ['IT', 'Software', 'Engineering'],
     }
 ]
 export default mockJobs;

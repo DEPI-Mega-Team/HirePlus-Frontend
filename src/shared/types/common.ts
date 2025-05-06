@@ -10,5 +10,8 @@ export interface Job {
     companyName: string;
     skillNames: string[];
     logo?: string;
+    numberOfApplicants: number;
+    capacity: number;
+    categoryNames: string[];
 
 }

@@ -1,0 +1,96 @@
+
+.search-container-hero {
+    background-color: var(--color-gradient-two);
+    position: relative;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-family);
+
+}
+.search-container-hero-pattern2 {
+    position: absolute;
+    right: 0;
+}
+
+.search-container-hero-pattern3 {
+    position: absolute;
+    left: 0;
+}
+
+.search-container-hero-businessMan {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30%;
+    z-index: 0;
+}
+
+.search-container-hero-title {
+    font-size: 5rem;
+    word-spacing: -1rem;
+}
+
+.search-container-hero-underline2 {
+    position: absolute;
+    bottom: 55%;
+    left: 50%;
+}
+
+.search-container-hero-title-span {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-bold);
+    font-size: 5.5rem;
+    margin-left: 1rem;
+}
+
+.search-container-hero-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.search-container-hero-content-text {
+    font-size: 2.4rem;
+}
+
+.search-container-hero-content-searchBar {
+    width: 150%;
+    position: relative;
+    z-index: 1;
+}
+
+.search-container-jobs-list-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.search-container-jobs-container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    gap: 2rem;
+    justify-content: space-evenly;
+    padding: 7rem 0;
+}
+
+
+.job-list-container {
+    flex-basis: 70%;
+}
+
+.job-list-container-title {
+    font-size: 4rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+}
+
+.job-list-container-text {
+    font-size: 1.6rem;
+    color: var(--color-text-secondary);
+}

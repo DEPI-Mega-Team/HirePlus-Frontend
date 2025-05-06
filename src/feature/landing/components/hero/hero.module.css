@@ -58,4 +58,12 @@
     font-weight: var(--font-weight-medium);
     font-family: var(--font-family);
     color: var(--color-primary);
+    margin-bottom: 3rem;
 }
+
+.hero-container__search {
+    width: 250%;
+    position: relative;
+    z-index: 10;
+}
+

@@ -1,0 +1,141 @@
+.searchBarContainer {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: var(--font-family);
+}
+
+.searchBar {
+  display: flex;
+  align-items: stretch;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.inputGroup {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.searchInput, .locationInput {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  flex: 1;
+}
+
+.searchIcon, .locationIcon {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  color: var(--color-secondary);
+}
+
+.input {
+  border: none;
+  outline: none;
+  font-size: 1.6rem;
+  color: var(--color-primary);
+  width: 100%;
+  background: transparent;
+  padding: 10px 0;
+}
+
+.input::placeholder {
+  color: var(--color-text-placeholder);
+}
+
+.divider {
+  width: 1px;
+  height: 30px;
+  background-color: var(--color-border);
+  margin: 0 5px;
+}
+
+.dropdownArrow {
+  color: var(--color-secondary);
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.searchButton {
+  padding: 12px 28px;
+  color: white;
+  border: none;
+  font-weight: var(--font-weight-bold);
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+
+.popularTags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  font-size: 1.4rem;
+  color: var(--color-secondary);
+  align-items: center;
+}
+
+.popularLabel {
+  margin-right: 8px;
+}
+
+.tag {
+  margin-right: 16px;
+  position: relative;
+}
+
+.tag:not(:last-child)::after {
+  content: ",";
+  position: absolute;
+  right: -4px;
+}
+.searchButton {
+    width: fit-content;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .searchBar {
+    flex-direction: column;
+  }
+  
+  .inputGroup {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .divider {
+    width: 90%;
+    height: 1px;
+    margin: 5px auto;
+  }
+  
+  .searchInput, .locationInput {
+    width: 100%;
+  }
+  
+  .searchButton {
+    width: 100%;
+    padding: 15px;
+  }
+  
+  .popularTags {
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .tag {
+    margin: 5px 10px;
+  }
+}
+
