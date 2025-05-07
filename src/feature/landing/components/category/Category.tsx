@@ -1,4 +1,4 @@
-import Card from "./categoryCard/Card";
+import Card from "./categoryCard/categoryCard";
 import styles from './category.module.css'
 
 const Category = () => {
@@ -9,11 +9,11 @@ const Category = () => {
                 <h1 className={styles['category-title']}>Explore by Category</h1>
 
                 <div className={styles['category-card-container']}>
-                        <Card number={100} title="Design" logo={''} />
-                        <Card number={100} title="Design" logo={''} />
-                        <Card number={100} title="Design" logo={''} />
-                        <Card number={100} title="Design" logo={''} />
-                        <Card number={100} title="Design" logo={''} />
+                        <Card number={100} title="Design" logo={'no-image.png'} />
+                        <Card number={100} title="Design" logo={'no-image.png'} />
+                        <Card number={100} title="Design" logo={'no-image.png'} />
+                        <Card number={100} title="Design" logo={'no-image.png'} />
+                        <Card number={100} title="Design" logo={'no-image.png'} />
                 </div>
                
                 </div>

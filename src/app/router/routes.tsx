@@ -1,14 +1,14 @@
 import Login from "@/feature/auth/pages/login/Login";
 import Signup from "@/feature/auth/pages/signup/Signup";
 import LoginAction from "@/feature/auth/services/LoginAction";
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, Navigate } from "react-router";
 import LandingLayout from "@/feature/landing/layout/LandingLayout";
 import Landing from "@/feature/landing/pages/Landing";
 import SignupAction from "@/feature/auth/services/SignupAction";
 import SearchJobs from "@/feature/search/pages/serachJobs/SearchJobs";
 import SearchCompanies from "@/feature/search/pages/searchCompanies/SearchCompanies";
 import BrowseCompanies from "@/feature/browseCompanies/pages/BrowseCompanies";
-
+import NotFound from "@/feature/notFound/pages/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: '/auth',
+    path: 'auth',
     children:
       [
         {
@@ -54,12 +54,23 @@ const router = createBrowserRouter([
           Component: Signup,
           action: SignupAction,
         }
+        , 
+        {
+          path: '*',
+          element: <Navigate to="/auth/login" replace/>
+        }
+        , 
+        {
+          index: true,
+          element: <Navigate to="/auth/login" replace/>
+        }
+        
       ]
   }
   ,
   {
     path: '*',
-    element: <div>Not Found</div>
+    Component: NotFound
   }
 
 ])

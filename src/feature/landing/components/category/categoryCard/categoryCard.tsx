@@ -1,6 +1,6 @@
 
 import arrowRight from '@/assets/icons/arrowRight.svg'
-import styles from './card.module.css'
+import styles from './categoryCard.module.css'
 interface CardProps {
     number: number;
     title: string;
@@ -10,11 +10,11 @@ interface CardProps {
 
 
 
-const Card:React.FC<CardProps> = ({number, title, logo}) => {
+const Card:React.FC<CardProps> = ({number, title, logo = 'no-image.png'}) => {
     return (
         <>
         <div className={styles['card']}>
-            <img src={logo} alt="" />
+            <img src={logo} alt={title} />
             <h2 className={styles['card-title']}>{title}</h2>
             <div className={styles['card-description-container']}>
                     <p className={styles['card-description']}>{number} Jobs Available</p>
