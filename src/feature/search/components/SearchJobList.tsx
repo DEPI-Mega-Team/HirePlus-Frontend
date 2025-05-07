@@ -1,7 +1,7 @@
 import Button from "@/shared/components/button/Button";
 import Label from "@/shared/components/label/Label";
 import ProgressBar from "@/shared/components/progressBar/ProgressBar";
-import { Job } from "@/shared/types/common";
+import { Job } from "@/shared/types/job";
 import styles from "./searchJobList.module.css";
 
 const SearchJobList = ({id, logo, jobTitle, companyName, location, jobType, categoryNames, numberOfApplicants, capacity}: Job) => {

@@ -1,4 +1,4 @@
-import { Job } from "@/shared/types/common";
+import { Job } from "@/shared/types/job";
 
 const mockJobs: Job[] = [
     {

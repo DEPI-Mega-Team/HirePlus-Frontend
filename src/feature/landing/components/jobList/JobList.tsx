@@ -1,5 +1,5 @@
 import Label from '@/shared/components/label/Label';
-import { Job } from '@/shared/types/common';
+import { Job } from '@/shared/types/job';
 import styles from './jobList.module.css';
 const JobList:React.FC<Job> = ({jobTitle, companyName, jobType, skillNames,location, logo}) => {
     return (

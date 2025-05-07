@@ -1,0 +1,12 @@
+.companyBigCard {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    border: 1px solid var(--color-border-secondary);
+    font-size: 1.6rem;
+    font-family: var(--font-family);
+    padding: 3rem;
+
+}

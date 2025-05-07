@@ -1,6 +1,6 @@
 import Label from '@/shared/components/label/Label';
 import styles from './jobCard.module.css'
-import { Job } from '@/shared/types/common'
+import { Job } from '@/shared/types/job'
 
 
 const JobCard:React.FC<Job> = ({ jobTitle, companyName, location, jobType, postedDate, expiryDate, experienceLevel, skillNames, logo, description }) => {

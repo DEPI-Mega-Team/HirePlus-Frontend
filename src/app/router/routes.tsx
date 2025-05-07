@@ -5,9 +5,9 @@ import { createBrowserRouter } from "react-router";
 import LandingLayout from "@/feature/landing/layout/LandingLayout";
 import Landing from "@/feature/landing/pages/Landing";
 import SignupAction from "@/feature/auth/services/SignupAction";
-import Search from "@/feature/search/pages/Search";
-
-
+import SearchJobs from "@/feature/search/pages/serachJobs/SearchJobs";
+import SearchCompanies from "@/feature/search/pages/searchCompanies/SearchCompanies";
+import BrowseCompanies from "@/feature/browseCompanies/pages/BrowseCompanies";
 
 
 const router = createBrowserRouter([
@@ -22,11 +22,21 @@ const router = createBrowserRouter([
       },
       {
         path: 'companies',
-        Component: null
+        Component: BrowseCompanies
       },
       {
         path: 'search',
-        Component: Search
+        children:
+        [
+          {
+            index:true,
+            Component: SearchJobs
+          },
+          {
+            path: 'companies',
+            Component: SearchCompanies
+          }
+        ]
       }
     ]
   },

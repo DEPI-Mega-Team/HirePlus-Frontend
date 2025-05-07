@@ -1,7 +1,7 @@
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
-import { Job } from "@/shared/types/common";
+import { Job } from "@/shared/types/job";
 import useLanding from "./useLanding"
-import mockJobs from '@/shared/mockData/mockDate'
+import mockJobs from '@/shared/mockData/jobs'
 
 const landingService = () => {
 

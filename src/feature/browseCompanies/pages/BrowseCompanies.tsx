@@ -1,0 +1,62 @@
+import SecondHero from "@/shared/components/secondHero/SecondHero";
+import useBrowseCompaniesServices from "../services/browseCompaniesServices";
+import styles from "./browseCompanies.module.css";
+import { Company } from "@/shared/types/company";
+import CompanyBigCard from "../components/CompanyBigCard";
+import { useNavigate } from "react-router-dom";
+
+
+const BrowseCompanies = () => {
+
+    const {recommendedCompanies, categories, categorizedCompanies} = useBrowseCompaniesServices();
+    const navigate = useNavigate();
+  return (
+    <div>
+        <SecondHero onSearch={(searchParams) => {navigate(`/search/companies?${new URLSearchParams(searchParams).toString()}`)}} />
+        <div className={styles['recommended-companies-container']}>
+              <div className={styles['recommended-companies-header']}>
+                  <h1>Recommended Companies</h1>
+                  <p>Based on your profile, company preferences, and recent activity</p>
+                  <div className={styles['recommended-companies-list']}>
+                      {
+                          recommendedCompanies.map((company) => (
+                              <CompanyBigCard key={company.name} {...company} />
+                          ))
+                      }
+                  </div>
+              </div>
+
+        </div>
+
+        <div className={styles['category']}>
+
+              <div className={styles['category-list-container']}>
+                  <h1>Companies By Category</h1>
+                  <div className={styles['category-list']}>
+                      {
+                          categories.map((category) => (
+                              <div className={styles['category-item']} key={category}>
+                                  <h2>{category}</h2>
+                              </div>
+                          ))
+                      }
+                  </div>
+                  <p>All Results</p>
+                  <div className={styles['category-result-list']}>
+                      {
+                          categorizedCompanies.map((company) => (
+                              <div className={styles['category-result-item']} key={company.name}>
+                                  <img src={company.logo} alt={company.name} />
+                                  <h2>{company.name}</h2>
+                              </div>
+                          ))
+                      }
+                  </div>
+              </div>
+        </div>
+        
+    </div>
+  )
+};
+
+export default BrowseCompanies;

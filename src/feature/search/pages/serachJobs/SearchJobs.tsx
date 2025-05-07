@@ -1,16 +1,11 @@
 import CheckboxList from "@/shared/components/checkboxList/CheckboxList";
 import Pagination from "@/shared/components/pagination/Pagination";
 import { useState } from "react";
-import styles from "./search.module.css";
-import pattern2 from "@/assets/imgs/Pattern-2.png";
-import pattern3 from "@/assets/imgs/Pattern-3.png";
-import businessMan from "@/assets/imgs/black businessman in blue suit looking at phone.png"
-import underline2 from "@/assets/imgs/underline-2.png"
-import SearchBar from "@/shared/components/searchBar/SearchBar";
-import mockJobs from "@/shared/mockData/mockDate";
-import { Job } from "@/shared/types/common";
-import SearchJobList from "../components/SearchJobList";
-
+import styles from "./searchJobs.module.css";
+import mockJobs from "@/shared/mockData/jobs";
+import { Job } from "@/shared/types/job";
+import SearchJobList from "../../components/SearchJobList";
+import SecondHero from "@/shared/components/secondHero/SecondHero";
 const Search = () => {
 
     const [currentPage, setCurrentPage] = useState(1);
@@ -24,22 +19,10 @@ const Search = () => {
 
     return (
         <div>
-            <div className={styles['search-container-hero']}>
-                <div className={styles['search-container-hero-content']}>
-                    <h1 className={styles['search-container-hero-title']}> Find your <span className={styles['search-container-hero-title-span']}>dream job</span></h1>
-                    <p className={styles['search-container-hero-content-text']}>Find your next career at companies like HubSpot, Nike, and Dropbox</p>
-                    <span className={styles['search-container-hero-content-searchBar']}>
-                        <SearchBar />
-                    </span>
-                </div>
-                <img className={styles['search-container-hero-underline2']} src={underline2} alt="" />
-                <img className={styles['search-container-hero-pattern2']} src={pattern2} alt="" />
-                <img className={styles['search-container-hero-pattern3']} src={pattern3} alt="" />
-                <img className={styles['search-container-hero-businessMan']} src={businessMan} alt="" />
-            </div>
+            <SecondHero />
 
             <div className={styles['search-container-jobs-container']}>
-               
+
                 <div className={styles['search-container']}>
 
                     <div>

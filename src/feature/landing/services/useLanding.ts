@@ -1,4 +1,4 @@
-import { Job } from "@/shared/types/common"
+import { Job } from "@/shared/types/job"
 import { useEffect, useState } from "react"
 import { fetchFeaturedJobs, fetchLatestJobs, fetchJobsByCategory } from "../api/landingAPI"
 

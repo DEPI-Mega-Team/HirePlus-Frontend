@@ -1,0 +1,32 @@
+.search-companies-container {
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+
+
+.search-companies-container__filters {
+    grid-column: 1 / 2;
+    padding: 3rem 0;
+}
+
+.search-companies-container__companies {
+    grid-column: 2 / -1;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 3rem;
+    padding: 3rem 0;
+}
+
+.search-companies-container__companies >:first-child {
+    grid-column: 1 / -1;
+    justify-self: flex-start;
+    font-size: 4rem;
+    
+}
+
+.search-companies-container__pagination {
+    grid-column: 1 / -1;
+}
