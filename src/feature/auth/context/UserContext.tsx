@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { AccountType } from "../types/authTypes";
+import { User } from "@/shared/types/auth";
 
 
 
@@ -14,6 +15,7 @@ const UserContext = createContext<UserContextType | null>(null);
 export const UserProvider = ({children}:{children: ReactNode}) =>{
 
     const [accountType, setAccountType] = useState<AccountType>('jobseeker');
+
     return (
         <UserContext.Provider value={{accountType, setAccountType}}>
             {children}

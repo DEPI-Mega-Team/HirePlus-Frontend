@@ -1,16 +1,18 @@
 import Login from "@/feature/auth/pages/login/Login";
 import Signup from "@/feature/auth/pages/signup/Signup";
 import LoginAction from "@/feature/auth/services/LoginAction";
-import { createBrowserRouter, Navigate } from "react-router";
+import { createBrowserRouter, Navigate, useLoaderData } from "react-router";
 import LandingLayout from "@/feature/landing/layout/LandingLayout";
 import Landing from "@/feature/landing/pages/Landing";
-import SignupAction from "@/feature/auth/services/SignupAction";
+import SignupAction from "@/feature/auth/services/signupAction";
 import SearchJobs from "@/feature/search/pages/serachJobs/SearchJobs";
 import SearchCompanies from "@/feature/search/pages/searchCompanies/SearchCompanies";
 import BrowseCompanies from "@/feature/browseCompanies/pages/BrowseCompanies";
 import NotFound from "@/feature/notFound/pages/NotFound";
 import JobDescription from "@/feature/jobDescription/pages/JobDescription";
 import CompanyProfile from "@/feature/companyProfile/pages/CompanyProfile";
+import loginLoader from "@/feature/auth/services/loginLoader";
+import signupLoader from "@/feature/auth/services/signupLoader";
 
 const router = createBrowserRouter([
   {
@@ -73,11 +75,13 @@ const router = createBrowserRouter([
         {
           path: 'login',
           Component: Login,
+          loader: loginLoader,
           action: LoginAction
         },
         {
           path: 'signup',
           Component: Signup,
+          loader: signupLoader,
           action: SignupAction,
         }
         , 

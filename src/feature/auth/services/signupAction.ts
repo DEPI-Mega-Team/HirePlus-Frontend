@@ -25,31 +25,44 @@ const SignupAction = async ({request} : {request:Request}) => {
     if(role === "jobseeker"){
         const data = await signupUser({name: userName,email,password,role: "User"})
         console.log("signup user data",data)
-        console.log(data.status);
-        console.log(data.headers);
-        console.log(data.statusText);
+        console.log(data.headers.get('Content-Type'));
+        let user = null
+        if(data.headers.get('Content-Type')?.includes('json')){
+            user = await data.json()
+        }
+        else{
+            user = JSON.parse(await data.text()) 
+        }
         
         if(data.ok){
             console.log("signup user successful");
+            console.log("user",user);
             
             return redirect('/auth/login')
         }
         else{
-            return {error: 'Signup failed', task: 'Signup'}
+            console.log("error",user);
+            return {error: 'error', task: 'Signup'}
         }
     }
-    else if(role === 'company'){
+    else{
         const data = await signupCompany({companyName,email,password,role: "Company",address})
         console.log("signup company data",data)
+        console.log(data.status);
+        console.log(data.headers);
+        console.log(data.statusText);
         if(data.ok){
             console.log("signup company successful");
+            const user = await data.text()
+            console.log("user",user);
             return redirect('/auth/login')
         }
         else{
-            return {error: 'Signup failed', task: 'Signup'}
+            const error = JSON.parse(await data.text())
+            console.log("error",error);
+            return {error: 'error', task: 'Signup'}
         }
     }
-    return {error: 'Signup failed', task: 'Signup'}
 }
 
 export default SignupAction

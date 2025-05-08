@@ -12,7 +12,7 @@ const authAPI = () => {
             }
         })
         console.log("signup user response",response);
-        return response.json()
+        return response
     }
     const signupCompany = async ({companyName, email, password, role, address}: signupBodyCompany) => {
         const response = await fetch(`${API_BASE_URL}/api/account/register`, {
@@ -24,7 +24,7 @@ const authAPI = () => {
         })
         console.log("signup company response",response);
 
-        return response.json()
+        return response
        }
 
     const login = async ({email, password}: loginBody) => {
@@ -37,7 +37,7 @@ const authAPI = () => {
         })
         console.log("login response",response);
 
-        return response.json()
+        return response
     }
 
     return {

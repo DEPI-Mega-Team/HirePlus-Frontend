@@ -3,9 +3,20 @@ import Tab from "../../../feature/landing/components/tab/Tab";
 import styles from './header.module.css';
 import Button from "@/shared/components/button/Button";
 import { useNavigate, useLocation } from "react-router";
+import { useUser } from "@/feature/auth/context/UserContext";
+import { UserContextType } from "@/feature/auth/context/UserContext";
+import profileIcon from "@/assets//icons/user.svg";
+import useUserData from "@/shared/hooks/useUserData";
+import { useState } from "react";
+import useLogout from "@/shared/hooks/useLogout";
 const Header = () => {
   const navigate = useNavigate();
   const url = useLocation();
+  const user = useUserData()
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const logout = useLogout();
+
+  
   return (
     <nav className={styles['header-nav']}>
        <div className={styles['header-nav__container']}>
@@ -16,10 +27,26 @@ const Header = () => {
               <li><Tab title="Browse Companies" isActive={url.pathname.startsWith('/companies')} to="/companies" /></li>
             </ul>
           </div>
-          <div className={styles['header-nav__buttons']}>
-            <Button onClick={() => navigate('/auth/login')} filled={false} >Login</Button>
-            <Button onClick={() => navigate('/auth/signup')} filled={true} >Signup</Button>
-          </div>
+          {
+            user ? (
+            <>
+              <div className={styles['header-nav__user-icon']}>
+                <button onClick={() => setIsUserMenuOpen(!isUserMenuOpen)} className={`${styles['header-nav__user-icon--button']}`}><img src={profileIcon} alt="profile" /></button>
+                <div className={`${styles['header-nav__user']} ${isUserMenuOpen ? styles['header-nav__user--active'] : ''}`} >
+                  <p>{user.email}</p>
+                  <button className={styles['header-nav__user-button']}>Dashboard</button>
+                  <button className={styles['header-nav__user-button']}>Profile</button>
+                  <button className={styles['header-nav__user-button']} onClick={logout}>Logout</button>
+              </div>
+              </div>
+              </>
+            ) : (
+              <div className={styles['header-nav__buttons']}>
+                <Button onClick={() => navigate('/auth/login')} filled={false} >Login</Button>
+                <Button onClick={() => navigate('/auth/signup')} filled={true} >Signup</Button>
+              </div>
+            )
+          }
 
        </div>
     </nav>
