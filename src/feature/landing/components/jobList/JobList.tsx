@@ -13,13 +13,13 @@ const JobList:React.FC<Job> = ({jobTitle, companyName, jobType, skillNames,locat
             </div>
             <div className={styles['job-list-bottom']}>
                 <p>{jobType}</p>
-                <div className={styles['skill-names']}>
+                {/* <div className={styles['skill-names']}>
                     {
                         skillNames.map((skill) => (
                             <Label key={skill} text={skill}/>
                         ))
                     }
-                </div>
+                </div> */}
             </div>
         </div>
     )

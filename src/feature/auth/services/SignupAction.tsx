@@ -19,31 +19,37 @@ const SignupAction = async ({request} : {request:Request}) => {
 
     if(!API_BASE_URL){
         console.log("API_BASE_URL is not defined");
-        return null;
+        return {error: 'API_BASE_URL is not defined'}
     }
 
     if(role === "jobseeker"){
         const data = await signupUser({name: userName,email,password,role: "User"})
         console.log("signup user data",data)
-        console.log(data.text());
         console.log(data.status);
         console.log(data.headers);
+        console.log(data.statusText);
+        
         if(data.ok){
             console.log("signup user successful");
             
-            // return redirect('/auth/login')
+            return redirect('/auth/login')
         }
-        
+        else{
+            return {error: 'Signup failed', task: 'Signup'}
+        }
     }
     else if(role === 'company'){
         const data = await signupCompany({companyName,email,password,role: "Company",address})
         console.log("signup company data",data)
         if(data.ok){
             console.log("signup company successful");
-            // return redirect('/auth/login')
+            return redirect('/auth/login')
+        }
+        else{
+            return {error: 'Signup failed', task: 'Signup'}
         }
     }
-    return null;
+    return {error: 'Signup failed', task: 'Signup'}
 }
 
 export default SignupAction

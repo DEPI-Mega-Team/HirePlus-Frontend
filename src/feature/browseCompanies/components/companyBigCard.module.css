@@ -1,5 +1,5 @@
 .companyBigCard {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -9,4 +9,8 @@
     font-family: var(--font-family);
     padding: 3rem;
 
+}
+
+.companyBigCardImage {
+    width: 25%;
 }

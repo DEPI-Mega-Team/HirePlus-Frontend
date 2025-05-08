@@ -19,14 +19,14 @@ const JobCard:React.FC<Job> = ({ jobTitle, companyName, location, jobType, poste
                         <p>{location}</p>
                     </div>
                     <p>{description}</p>
-                    <div className={styles['skill-names']}>
+                    {/* <div className={styles['skill-names']}>
                         {
                             skillNames.map((skill, index) => (
                                 <Label key={index} text={skill} />
                             ))
                         }
                         
-                    </div>
+                    </div> */}
             </div>
 
         </>

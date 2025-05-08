@@ -8,13 +8,23 @@ import LineSeparator from "@/shared/components/lineSeparator/LineSeparator";
 import googleIcon from "@/assets/icons/Google.svg";
 import Checkbox from "@/shared/components/checkbox/Checkbox";
 import { Link } from "react-router-dom";
-const LoginForm = () => {
+import { useEffect } from "react";
+import { useSubmit, useActionData } from "react-router-dom";
+const LoginForm = ({setError}: {setError: (error: {error: string, task: string}) => void}) => {
 
     const {setAccountType} = useUser() as UserContextType;
-    
+    const submit = useSubmit()
     const handleToggle = () => {
         setAccountType((prev) => prev === 'jobseeker' ? 'company' : 'jobseeker');
     };
+
+    const actionData = useActionData()
+
+    useEffect(() => {
+        if(actionData?.error){
+            setError({error: actionData.error, task: 'Login'})
+        }
+    }, [actionData])
     return (
         <>
         <div className={styles['form__container']}>

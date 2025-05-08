@@ -10,15 +10,20 @@ const LoginAction = async ({request} : {request:Request}) => {
     console.log(email, password)
     if(!API_BASE_URL){
         console.log('API_BASE_URL is not defined')
-        return redirect('/')
-
+        // return redirect('/')
+        return {error: 'API_BASE_URL is not defined'}
     }
     const response = await login({email, password})
     console.log(response)
     if(response.ok){
         console.log("login successful");
+        const data = await response.json()
+        console.log(data);
         
         // return redirect('/')
+    }
+    else{
+        return {error: 'Login failed'}
     }
     
 }

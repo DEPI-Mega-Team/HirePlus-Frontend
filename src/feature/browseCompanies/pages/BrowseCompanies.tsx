@@ -1,14 +1,31 @@
 import SecondHero from "@/shared/components/secondHero/SecondHero";
-import useBrowseCompaniesServices from "../services/browseCompaniesServices";
+import useBrowseCompaniesService from "../services/useBrowseCompaniesService";
 import styles from "./browseCompanies.module.css";
 import { Company } from "@/shared/types/company";
 import CompanyBigCard from "../components/CompanyBigCard";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 
 const BrowseCompanies = () => {
+   const [recommendedCompanies, setRecommendedCompanies] = useState<Company[]>([]);
+   const [categories, setCategories] = useState<string[]>([]);
+   const [categorizedCompanies, setCategorizedCompanies] = useState<Company[]>([]);
+    useEffect(() => {
+        (async () => {
+            const {recommendedCompanies, categories, categorizedCompanies} = await useBrowseCompaniesService()
+            setRecommendedCompanies(recommendedCompanies)
+            setCategories(categories)
+            setCategorizedCompanies(categorizedCompanies)
+            console.log(recommendedCompanies);
+            console.log(categories);
+            console.log(categorizedCompanies);
+        })()
 
-    const {recommendedCompanies, categories, categorizedCompanies} = useBrowseCompaniesServices();
+        
+        
+    }, []);
+
     const navigate = useNavigate();
   return (
     <div>
@@ -46,7 +63,7 @@ const BrowseCompanies = () => {
                       {
                           categorizedCompanies.map((company) => (
                               <div className={styles['category-result-item']} key={company.name}>
-                                  <img src={company.logo} alt={company.name} />
+                                  <img className={styles['category-result-item-image']} src={company.logo} alt={company.name} />
                                   <h2>{company.name}</h2>
                               </div>
                           ))

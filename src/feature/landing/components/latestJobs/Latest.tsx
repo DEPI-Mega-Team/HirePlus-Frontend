@@ -1,5 +1,5 @@
 import JobList from "../jobList/JobList";
-import landingService from "../../services/landingService";
+import landingService from "../../services/useLandingService";
 import styles from './latest.module.css';
 
 

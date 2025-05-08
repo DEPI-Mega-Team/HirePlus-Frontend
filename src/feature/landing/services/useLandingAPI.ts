@@ -8,16 +8,17 @@ const useLanding = () => {
     const [jobsByCategory, setJobsByCategory] = useState<Job[]>([])
 
     const getFeaturedJobs = async () => {
-        const response = await fetchFeaturedJobs()
-        setFeaturedJobs(response)
+        const data = await fetchFeaturedJobs()
+        
+        setFeaturedJobs(data)
     }
     const getLatestJobs = async () => {
-        const response = await fetchLatestJobs()
-        setLatestJobs(response)
+        const data = await fetchLatestJobs()
+        setLatestJobs(data)
     }
     const getJobsByCategory = async () => {
-        const response = await fetchJobsByCategory()
-        setJobsByCategory(response)
+        const data = await fetchJobsByCategory()
+        setJobsByCategory(data)
     }
     useEffect(() => {
         getFeaturedJobs()

@@ -1,6 +1,6 @@
 import styles from './featured.module.css'
 import JobCard from '@/feature/landing/components/jobCard/JobCard'
-import landingService from '../../services/landingService'
+import landingService from '../../services/useLandingService'
 
 const Featured = () => {
     const { featuredJobs } = landingService();

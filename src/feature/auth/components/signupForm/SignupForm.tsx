@@ -6,13 +6,15 @@ import { UserContextType, useUser } from "@/feature/auth/context/UserContext";
 import styles from "./signupForm.module.css";
 import LineSeparator from "@/shared/components/lineSeparator/LineSeparator";
 import googleIcon from "@/assets/icons/Google.svg";
-import { Link,useSubmit } from "react-router-dom";
+import { Link,useSubmit, useActionData } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 
-const LoginForm = () => {
+const LoginForm = ({setError}: {setError: (error: {error: string, task: string}) => void}) => {
     const navigate = useNavigate();
     const submit = useSubmit();
+    const actionData = useActionData()
     const { setAccountType, accountType } = useUser() as UserContextType;
 
     const handleToggle = () => {
@@ -24,6 +26,11 @@ const LoginForm = () => {
         formData.append('role', accountType);
         submit(formData, { method: 'post' });
     };
+    useEffect(() => {
+        if(actionData?.error){
+            setError({error: actionData.error, task: 'Signup'})
+        }
+    }, [actionData])
     return (
         <>
             <div className={styles['form__container']}>
