@@ -9,6 +9,8 @@ import SearchJobs from "@/feature/search/pages/serachJobs/SearchJobs";
 import SearchCompanies from "@/feature/search/pages/searchCompanies/SearchCompanies";
 import BrowseCompanies from "@/feature/browseCompanies/pages/BrowseCompanies";
 import NotFound from "@/feature/notFound/pages/NotFound";
+import JobDescription from "@/feature/jobDescription/pages/JobDescription";
+import CompanyProfile from "@/feature/companyProfile/pages/CompanyProfile";
 
 const router = createBrowserRouter([
   {
@@ -22,8 +24,32 @@ const router = createBrowserRouter([
       },
       {
         path: 'companies',
-        Component: BrowseCompanies
+        children:
+        [
+          {
+            index:true,
+            Component: BrowseCompanies
+          },
+          {
+            path: ':id',
+            Component: CompanyProfile
+          }
+        ]
       },
+      {
+        path: 'jobs',
+        children:[
+          {
+            index:true,
+            element: <Navigate to="/" replace/>
+          },
+          {
+            path: ':id',
+            Component: JobDescription
+          }
+        ]
+      },
+      
       {
         path: 'search',
         children:

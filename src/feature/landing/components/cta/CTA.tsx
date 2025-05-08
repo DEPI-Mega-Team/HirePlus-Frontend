@@ -12,7 +12,7 @@ const CTA = () => {
                         <h1 className={styles['cta-title']}>Start posting jobs today</h1>
                         <p className={styles['cta-description']}>start posting jobs for only $10</p>
                         <div className={styles['cta-button-container']}>
-                            <Button label='Sign Up for free' />
+                            <Button>Sign Up for free</Button>
                         </div>
                 </div>
                 <img src={ctaImg} alt="cta-img" className={styles['cta-img']} />

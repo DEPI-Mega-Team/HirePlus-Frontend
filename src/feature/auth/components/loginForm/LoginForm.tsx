@@ -31,7 +31,7 @@ const LoginForm = ({setError}: {setError: (error: {error: string, task: string})
 
             <ToggleButton onClick={handleToggle} text1="Job Seeker" text2="Company" />
             <p className={styles['form__greeting']}>Welcome Back</p>
-            <Button icon={googleIcon} iconPosition="left" label="Login With Google"/>
+            <Button icon={googleIcon} iconPosition="left">Login With Google</Button>
             <LineSeparator text="Or Login With Email"/>
             <Form method="post" className={styles['form']}>
                 <InputField id='name' label='Email Address' name="email" type="email" placeholder="Enter Email Address" />
@@ -40,7 +40,7 @@ const LoginForm = ({setError}: {setError: (error: {error: string, task: string})
                         <Checkbox name="rememberme" id="rem" />
                         <label className={styles['checkbox__label']} htmlFor="rem">Remember me</label>
                 </div>
-                <Button type="submit"  filled={true} label="Login" />
+                <Button type="submit"  filled={true}>Login</Button>
 
             </Form>
             <div className={styles['form__login__link']}>

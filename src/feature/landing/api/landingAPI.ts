@@ -4,15 +4,15 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
 
 
 const fetchFeaturedJobs = async () => {
-    const response = await fetch(`${API_BASE_URL}/jobs`)
+    const response = await fetch(`${API_BASE_URL}/api/jobs`)
     return getJson(response)
 }
 const fetchJobsByCategory = async () => {
-    const response = await fetch(`${API_BASE_URL}/jobs`)
+    const response = await fetch(`${API_BASE_URL}/api/jobs`)
     return getJson(response)
 }
 const fetchLatestJobs = async () => {
-    const response = await fetch(`${API_BASE_URL}/jobs`)
+    const response = await fetch(`${API_BASE_URL}/api/jobs`)
     return getJson(response)
 }
 

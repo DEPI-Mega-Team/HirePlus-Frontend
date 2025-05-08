@@ -1,3 +1,5 @@
+import { Company } from "./company";
+
 export interface Job {
     id: string;
     jobTitle: string;
@@ -7,11 +9,10 @@ export interface Job {
     postedDate: string;
     expiryDate: string;
     experienceLevel: string;
-    companyName: string;
     skillNames: string[];
-    logo?: string;
     numberOfApplicants: number;
     capacity: number;
     categoryNames: string[];
+    company: Company;
 
 }

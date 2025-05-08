@@ -1,0 +1,39 @@
+.job-application-modal {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.job-application-modal__container{
+    width: 30%;
+    height: 90%;
+    background-color: white;
+    position: absolute;
+    overflow-y: auto;
+    padding: 2rem;
+    
+}
+
+
+.job-application-modal__container__job-info {
+    display: flex;
+    gap: .5rem;
+}
+
+.job-application-modal__container__close-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 1rem;
+}

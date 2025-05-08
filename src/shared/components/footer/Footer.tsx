@@ -36,7 +36,7 @@ const Footer = () => {
                         <p>The latest job news, articles, sent to your inbox weekly.</p>
                         <div className={styles['footer-container__subscribe-form']}>
                             <InputField name='email' id='email' type="email" placeholder='Enter your email' />
-                            <Button label='Subscribe' />
+                            <Button>Subscribe</Button>
                         </div>
                 </div>
                 </div>

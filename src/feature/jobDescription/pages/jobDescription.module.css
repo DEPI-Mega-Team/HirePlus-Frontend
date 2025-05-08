@@ -1,0 +1,88 @@
+.job-description-container__wrapper {
+    height: 300px;
+    position: relative;
+    background-color: var(--color-gradient-two);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.job-description-container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.job-description-container__job-info--path {
+    align-self: flex-start;
+    font-size: 1.2rem;
+    font-family: var(--font-family);
+}
+
+.job-description-container__pattern4 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    object-fit: contain;
+}
+
+.job-description-container__pattern5 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    object-fit: contain;
+}
+.job-description-container__job-info {
+    position: relative; 
+    display: grid;
+    grid-template-columns: 1fr 8fr 2fr;
+    z-index: 1;
+    align-items: center;
+    font-size: 1.6rem;
+    font-family: var(--font-family);
+    background-color: white;
+    padding: 4rem 2rem;
+}
+
+.job-description-container__job-info--content {
+    grid-column: 2 / 3;
+}
+.job-description-container__job-info__actions {
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+    display: flex;
+    gap: 3rem;
+    
+}
+
+.job-description-container__job-info--content-company {
+    display: flex;
+    gap:.5rem;
+}
+
+.job-description-container__job-info__separator {
+    width: 1px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.job-description-container__job-info__actions-share {
+    background-color:transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.job-description-container__job-info--description {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+    gap: 2rem;
+    justify-content: space-between;
+    padding: 2rem 0;
+}
+

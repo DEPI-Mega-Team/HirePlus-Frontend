@@ -37,7 +37,7 @@ const LoginForm = ({setError}: {setError: (error: {error: string, task: string})
 
                 <ToggleButton onClick={handleToggle} text1="Job Seeker" text2="Company" />
                 <p className={styles['form__greeting']}>Get More Opportunities</p>
-                <Button icon={googleIcon} iconPosition="left" label="Sign Up With Google" />
+                <Button icon={googleIcon} iconPosition="left">Sign Up With Google</Button>
                 <LineSeparator text="Or Sign Up With Email" />
                 <Form method="post" onSubmit={handleSubmit} className={styles['form']}>
                     {accountType === 'jobseeker' && <InputField id='fullname' label='Full Name' name="fullname" type="text" placeholder="Enter Full Name" />}
@@ -45,7 +45,7 @@ const LoginForm = ({setError}: {setError: (error: {error: string, task: string})
                     {accountType === 'company' && <InputField id='address' label='Address' name="address" type="text" placeholder="Enter Company Address" />}
                     <InputField id='email' label='Email Address' name="email" type="email" placeholder="Enter Email Address" />
                     <InputField id='password' label='Password' name="password" type="password" placeholder="Enter Password" />
-                    <Button type="submit" filled={true} label="Sign Up" />
+                    <Button type="submit" filled={true}>Sign Up</Button>
 
                 </Form>
                 <div className={styles['form__signup__link']}>

@@ -11,6 +11,7 @@ const companies: Company[] = [
     size: '500-1000',
     rating: 4.5,
     logo: undefined,
+    id: '1',
   },
   {
     name: 'HealthBridge',
@@ -21,6 +22,7 @@ const companies: Company[] = [
     size: '200-500',
     rating: 4.2,
     logo: undefined,
+    id: '2',
   },
   {
     name: 'EcoLogix',
@@ -31,6 +33,7 @@ const companies: Company[] = [
     size: '100-200',
     rating: 4.7,
     logo: undefined,
+    id: '3',
   },
   {
     name: 'FinEdge',
@@ -41,6 +44,7 @@ const companies: Company[] = [
     size: '1000-5000',
     rating: 4.3,
     logo: undefined,
+    id: '4',
   },
   {
     name: 'EduCore',
@@ -51,6 +55,7 @@ const companies: Company[] = [
     size: '50-100',
     rating: 4.6,
     logo: undefined,
+    id: '5',
   },
 ];
 

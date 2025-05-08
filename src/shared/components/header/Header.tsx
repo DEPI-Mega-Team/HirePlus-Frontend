@@ -12,13 +12,13 @@ const Header = () => {
           <div className={styles['header-nav__logo']}>
             <Logo position="relative" />
             <ul className={`${styles['header-tabs']} d-none`}>
-              <li><Tab title="Find Jobs" isActive={url.pathname === '/'} to="/" /></li>
-              <li><Tab title="Browse Companies" isActive={url.pathname === '/companies'} to="/companies" /></li>
+              <li><Tab title="Find Jobs" isActive={url.pathname.startsWith('/') && !url.pathname.startsWith('/companies')} to="/" /></li>
+              <li><Tab title="Browse Companies" isActive={url.pathname.startsWith('/companies')} to="/companies" /></li>
             </ul>
           </div>
           <div className={styles['header-nav__buttons']}>
-            <Button label="Login" onClick={() => navigate('/auth/login')} filled={false} />
-            <Button label="Signup" onClick={() => navigate('/auth/signup')} filled={true} />
+            <Button onClick={() => navigate('/auth/login')} filled={false} >Login</Button>
+            <Button onClick={() => navigate('/auth/signup')} filled={true} >Signup</Button>
           </div>
 
        </div>
