@@ -2,10 +2,8 @@ import Logo from "@/shared/components/logo/Logo";
 import Tab from "../../../feature/landing/components/tab/Tab";
 import styles from './header.module.css';
 import Button from "@/shared/components/button/Button";
-import { useNavigate, useLocation } from "react-router";
-import { useUser } from "@/feature/auth/context/UserContext";
-import { UserContextType } from "@/feature/auth/context/UserContext";
-import profileIcon from "@/assets//icons/user.svg";
+import { useNavigate, useLocation } from "react-router"; 
+import profileIcon from "@/assets/icons/User.svg";
 import useUserData from "@/shared/hooks/useUserData";
 import { useState } from "react";
 import useLogout from "@/shared/hooks/useLogout";
@@ -16,6 +14,13 @@ const Header = () => {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const logout = useLogout();
 
+  const handleDashboardClick = () => {
+    navigate('/dashboard')
+  }
+
+  const handleJobClick = (jobId: string) => {
+    navigate(`/job/${jobId}`)
+  }
   
   return (
     <nav className={styles['header-nav']}>
@@ -34,7 +39,7 @@ const Header = () => {
                 <button onClick={() => setIsUserMenuOpen(!isUserMenuOpen)} className={`${styles['header-nav__user-icon--button']}`}><img src={profileIcon} alt="profile" /></button>
                 <div className={`${styles['header-nav__user']} ${isUserMenuOpen ? styles['header-nav__user--active'] : ''}`} >
                   <p>{user.email}</p>
-                  <button className={styles['header-nav__user-button']}>Dashboard</button>
+                  <button className={styles['header-nav__user-button']} onClick={handleDashboardClick}>Dashboard</button>
                   <button className={styles['header-nav__user-button']}>Profile</button>
                   <button className={styles['header-nav__user-button']} onClick={logout}>Logout</button>
               </div>

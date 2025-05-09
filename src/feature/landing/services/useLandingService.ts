@@ -3,31 +3,45 @@ import { Job } from "@/shared/types/job";
 import useLanding from "./useLandingAPI"
 import mockJobs from '@/shared/mockData/jobs'
 
-const landingService = () => {
+const landingService = async () => {
 
+    const { getFeaturedJobs, getLatestJobs, getJobsByCategory } = useLanding();
     let featuredJobs: Job[] = []
     let latestJobs: Job[] = []
     let jobsByCategory: Job[] = []
-    if(API_BASE_URL) 
-    {
-        featuredJobs = useLanding().featuredJobs;
-        latestJobs = useLanding().latestJobs;
-        jobsByCategory = useLanding().jobsByCategory;
-        return {
-            featuredJobs,
-            latestJobs,
-            jobsByCategory
+
+    const retFeaturedJobs = async () => {
+        if(API_BASE_URL) {
+            const ret = await getFeaturedJobs();
+            featuredJobs = ret; 
+            return featuredJobs;
+        }
+        else {
+            featuredJobs = mockJobs;
+            return featuredJobs;
         }
     }
-    else 
-    {
-        return {
-            featuredJobs: mockJobs,
-            latestJobs: mockJobs,
-            jobsByCategory: mockJobs
+    const retLatestJobs = async () => {
+        if(API_BASE_URL) {
+            latestJobs = await getLatestJobs();
+            return latestJobs;
+        }
+        else {
+            latestJobs = mockJobs;
+            return latestJobs;
         }
     }
-    
+    const retJobsByCategory = async () => {
+        if(API_BASE_URL) {
+            jobsByCategory = await getJobsByCategory();
+            return jobsByCategory;
+        }
+        else {
+            jobsByCategory = mockJobs;
+            return jobsByCategory;
+        }
+    }
+    return { retFeaturedJobs, retLatestJobs, retJobsByCategory }
 }
 export default landingService;
 

@@ -9,10 +9,14 @@ import shareIcon from "@/assets/icons/Share.svg";
 import styles from "./jobDescription.module.css";
 import Label from "@/shared/components/label/Label";
 import JobApplicationModal from "../components/JobApplicationModal";
+import useCompany from "@/feature/landing/services/useCompany";
+import { Company } from "@/shared/types/company";
 const JobDescription = () => {
     const { id } = useParams() as { id: string };
     const [jobDescription, setJobDescription] = useState<Job>({} as Job);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [company, setCompany] = useState<Company | null>(null);
+
     useEffect(() => {
         const fetchJobDescription = async () => {
             const data = await useJobDescriptionService(id);
@@ -21,9 +25,21 @@ const JobDescription = () => {
         fetchJobDescription();
     }, [id]);
 
+   
+    useEffect(()=>{
+        (async () => {
+            const {getCompany} = await useCompany();
+            if(jobDescription.companyId){
+                const data = await getCompany(jobDescription.companyId);
+                setCompany(data);
+            }
+        })()
+    },[jobDescription.companyId])
+
     const handleApply = () => {
         setIsModalOpen(true);
     }
+
     return (
         <>
         {isModalOpen && <JobApplicationModal jobDescription={jobDescription} onClose={() => setIsModalOpen(false)} />}
@@ -31,12 +47,12 @@ const JobDescription = () => {
             <div className={styles['job-description-container']}>
                 <img className={styles['job-description-container__pattern4']} src={Pattern4} alt="" />
                 <img className={styles['job-description-container__pattern5']} src={Pattern5} alt="" />
-                <div className={styles['job-description-container__job-info--path']}>Home/Companies/{jobDescription.company?.name}/Jobs/{jobDescription.jobTitle}</div>
+                <div className={styles['job-description-container__job-info--path']}>Home/Companies/{company?.name}/Jobs/{jobDescription.jobTitle}</div>
                 <div className={styles['job-description-container__job-info']}>
-                    {/* <img src={jobDescription.company?.logo} alt="" /> */}
+                    {/* <img src={company?.logo} alt="" /> */}
                     <div className={styles['job-description-container__job-info--content']}>{jobDescription.jobTitle}</div>
                     <div className={`${styles['job-description-container__job-info--content']} ${styles['job-description-container__job-info--content-company']}`}>
-                        <div>{jobDescription.company?.name}</div><span>.</span>
+                        <div>{company?.name}</div><span>.</span>
                         <div>{jobDescription.location}</div><span>.</span>
                         <div>{jobDescription.jobType}</div>
                     </div>
@@ -66,7 +82,7 @@ const JobDescription = () => {
                     <h3> Categories  </h3>
                     <div>
                         {
-                            jobDescription.company?.industry
+                            company?.industry
                         }
                     </div>
 
@@ -75,8 +91,8 @@ const JobDescription = () => {
                     <h3>Required Skills</h3>
                     <div>
                         {
-                            jobDescription.skillNames?.map((skill) => (
-                                <Label text={skill} key={skill}/>
+                            jobDescription.skills?.map((skill) => (
+                                <Label text={skill.skillName} key={skill.skillId}/>
                             ))
                         }
                     </div>

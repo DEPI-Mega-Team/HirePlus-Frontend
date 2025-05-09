@@ -1,25 +1,42 @@
 import Label from '@/shared/components/label/Label';
 import { Job } from '@/shared/types/job';
 import styles from './jobList.module.css';
-const JobList:React.FC<Job> = ({jobTitle, companyName, jobType, skillNames,location, logo}) => {
+import { useEffect, useState } from 'react';
+import { Company } from '@/shared/types/company';
+import useCompany from '../../services/useCompany';
+
+
+
+const JobList:React.FC<Job> = ({jobTitle, companyId, jobType, skills,location, onClick}) => {
+    const [company, setCompany] = useState<Company | null>(null)
+    useEffect(() => {
+        const fetchCompany = async () => {
+            const { getCompany } = useCompany()
+            const company = await getCompany(companyId)
+            setCompany(company)
+            console.log(company);
+        }
+        fetchCompany()
+    }, [])
+
     return (
-        <div className={styles['job-list']}>
-            {/* <img src={logo} alt={companyName} /> */}
+        <div onClick={onClick} className={styles['job-list']}>
+            {/* <img src={company?.logo} alt={company?.name} /> */}
             <h1>{jobTitle}</h1>
             <div className={styles['job-list-top']}>
-                <p>{companyName}</p>
+                <p>{company?.name}</p>
                 <span>.</span>
                 <p>{location}</p>
             </div>
             <div className={styles['job-list-bottom']}>
                 <p>{jobType}</p>
-                {/* <div className={styles['skill-names']}>
+                <div className={styles['skill-names']}>
                     {
-                        skillNames.map((skill) => (
-                            <Label key={skill} text={skill}/>
+                        skills?.map((skill) => (
+                            <Label key={skill.skillId} text={skill.skillName}/>
                         ))
                     }
-                </div> */}
+                </div>
             </div>
         </div>
     )

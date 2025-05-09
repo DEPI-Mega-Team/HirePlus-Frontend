@@ -13,6 +13,9 @@ import JobDescription from "@/feature/jobDescription/pages/JobDescription";
 import CompanyProfile from "@/feature/companyProfile/pages/CompanyProfile";
 import loginLoader from "@/feature/auth/services/loginLoader";
 import signupLoader from "@/feature/auth/services/signupLoader";
+import DashboardLayout from "@/feature/dashboard/layout/DashboardLayout";
+import Dashboard from "@/feature/dashboard/pages/Dashboard";
+import DashboardInterviewChatbot from "@/feature/dashboard/pages/DashboardInterviewChatbot";
 
 const router = createBrowserRouter([
   {
@@ -39,7 +42,7 @@ const router = createBrowserRouter([
         ]
       },
       {
-        path: 'jobs',
+        path: 'job',
         children:[
           {
             index:true,
@@ -96,8 +99,46 @@ const router = createBrowserRouter([
         }
         
       ]
-  }
-  ,
+  },
+  {
+    path: 'dashboard',
+    Component: DashboardLayout,
+    children:
+    [
+      {
+        index:true,
+        element: <Navigate to="/dashboard/home" replace/>
+      },
+      {
+        path: 'home',
+        Component: Dashboard
+      },
+      {
+        path: 'messages',
+        Component: null
+      },
+      {
+        path: 'interview-chatbot',
+        Component: DashboardInterviewChatbot
+      },
+      {
+        path: 'my-applications',
+        Component: null
+      },
+      {
+        path: 'find-jobs',
+        Component: null
+      },
+      {
+        path: 'browse-companies',
+        Component: null
+      },
+      {
+        path: 'my-public-profile',
+        Component: null
+      }
+    ]
+  },
   {
     path: '*',
     Component: NotFound

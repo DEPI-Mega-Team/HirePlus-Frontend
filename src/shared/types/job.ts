@@ -1,18 +1,19 @@
-import { Company } from "./company";
 
+export interface Skill {
+    skillId: string;
+    skillName: string;
+}
 export interface Job {
-    id: string;
+    jobId: string;
     jobTitle: string;
     description: string;
     location: string;
     jobType: string;
-    postedDate: string;
-    expiryDate: string;
+    postDate: string;
+    expiredDate: string;
     experienceLevel: string;
-    skillNames: string[];
-    numberOfApplicants: number;
-    capacity: number;
-    categoryNames: string[];
-    company: Company;
+    skills: Skill[];
+    companyId: string;
+    onClick: () => void;
 
 }

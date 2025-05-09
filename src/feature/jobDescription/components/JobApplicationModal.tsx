@@ -4,15 +4,30 @@ import InputField from "@/shared/components/inputField/InputField";
 import Button from "@/shared/components/button/Button";
 import { Job } from "@/shared/types/job";
 import closeIcon from "@/assets/icons/Close.svg";
+import { useEffect, useState } from "react";
+import useCompany from '@/feature/landing/services/useCompany';
+import { Company } from "@/shared/types/company";
+
 const JobApplicationModal = ({jobDescription, onClose}: {jobDescription: Job, onClose: () => void}) => {
+    const [company, setCompany] = useState<Company | null>(null);
+    useEffect(() => {
+        (async () => {
+            const {getCompany} = await useCompany();            
+            const data = await getCompany(jobDescription.companyId)
+            setCompany(data)
+        })()
+       
+    },[jobDescription.companyId])
+
+
     return (
         <div className={styles['job-application-modal']}>
             <div className={styles['job-application-modal__container']}>
             <div>
-                <img src={jobDescription.company?.logo} alt="" />
+                {/* <img src={company?.logo} alt="" /> */}
                 <h1>{jobDescription.jobTitle}</h1>
                 <div className={styles['job-application-modal__container__job-info']}>
-                    <p>{jobDescription.company?.name}</p> <span>.</span>
+                    <p>{company?.name}</p> <span>.</span>
                     <p>{jobDescription.location}</p> <span>.</span>
                     <p>{jobDescription.jobType}</p>
                 </div>

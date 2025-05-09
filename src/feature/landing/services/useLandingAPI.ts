@@ -3,28 +3,64 @@ import { useEffect, useState } from "react"
 import { fetchFeaturedJobs, fetchLatestJobs, fetchJobsByCategory } from "../api/landingAPI"
 
 const useLanding = () => {
-    const [featuredJobs, setFeaturedJobs] = useState<Job[]>([])
-    const [latestJobs, setLatestJobs] = useState<Job[]>([])
-    const [jobsByCategory, setJobsByCategory] = useState<Job[]>([])
 
     const getFeaturedJobs = async () => {
         const data = await fetchFeaturedJobs()
-        
-        setFeaturedJobs(data)
+        if(data.ok) {
+            if(data.headers.get('Content-Type')?.includes('json')) {
+                const json = await data.json() as Job[]
+                console.log(json);
+                return json
+            }
+            else
+            {
+                throw new Error('Failed to fetch featured jobs Data is not json')
+            }
+        }
+        else
+        {
+            throw new Error('Failed to fetch featured jobs')
+        }
     }
     const getLatestJobs = async () => {
         const data = await fetchLatestJobs()
-        setLatestJobs(data)
+        if(data.ok) {
+            if(data.headers.get('Content-Type')?.includes('json')) {
+                const json = await data.json() as Job[]
+                console.log(json);
+                
+                return json
+            }
+            else
+            {
+                throw new Error('Failed to fetch latest jobs Data is not json')
+            }
+        }
+        else
+        {
+            throw new Error('Failed to fetch latest jobs')
+        }
     }
     const getJobsByCategory = async () => {
         const data = await fetchJobsByCategory()
-        setJobsByCategory(data)
+        if(data.ok) {
+            if(data.headers.get('Content-Type')?.includes('json')) {
+                const json = await data.json() as Job[]
+                console.log(json);
+                return json
+                
+            }
+            else
+            {
+                throw new Error('Failed to fetch jobs by category Data is not json')
+            }
+        }
+        else
+        {
+            throw new Error('Failed to fetch jobs by category')
+        }
     }
-    useEffect(() => {
-        getFeaturedJobs()
-        getLatestJobs()
-        getJobsByCategory()
-    }, [])
-    return { featuredJobs, latestJobs, jobsByCategory }
+    
+    return { getFeaturedJobs, getLatestJobs, getJobsByCategory }
 }
 export default useLanding;
