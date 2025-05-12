@@ -53,7 +53,9 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
           </div>
         </div>
               <div className={styles['searchButton']}>
-        <Button filled={true} type="submit" label='Search my job' />
+        <Button filled={true} type="submit" >
+          Search my job
+        </Button>
         </div>
       </form>
     </div>

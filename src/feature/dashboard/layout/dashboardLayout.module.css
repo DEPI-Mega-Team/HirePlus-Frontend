@@ -6,6 +6,10 @@
 
 .dashboard-layout-sidebar {
     flex-shrink: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
 }
 .dashboard-layout-content {
     flex-basis: 100%;
@@ -36,10 +40,13 @@
     gap: 1rem;
     padding: 1rem;
     text-decoration: none;
-    color: black;
+    color: var(--color-secondary);
     font-size: 1.6rem;
     font-family: var(--font-family);
     
+}
+.dashboard-layout-button svg * {
+    stroke: var(--color-secondary);
 }
 .dashboard-layout-button:hover {
     background-color: #eee;
@@ -57,4 +64,57 @@
     height: 80%;
     background-color: var(--color-primary);
 }
+.horizontal-line {
+    min-width: 100%;
+    height: 1px;
+    background-color: var(--color-border-secondary);
+    margin: 2rem 0;
+}
 
+.dashboard-layout-sidebar-bottom {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    gap: 2rem;
+    flex:1;
+}
+
+.dashboard-layout-sidebar-bottom h2{
+    font-size: 1.6rem;
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family);
+    color: var(--color-secondary)
+}
+
+.dashboard-layout-sidebar-bottom > button {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--color-secondary)
+
+}
+.dashboard-layout-sidebar-bottom > button > svg * {
+    stroke: var(--color-secondary);
+}
+
+.dashboard-layout-sidebar-bottom-profile {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+}
+.dashboard-layout-sidebar-bottom-profile > button {
+    background-color: transparent;
+    border: none ;
+    color: var(--color-secondary);
+    font-family: var(--font-family);
+    font-size: 1.6rem;
+
+}
+
+    

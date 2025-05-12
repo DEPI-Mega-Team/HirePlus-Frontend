@@ -13,11 +13,16 @@
   
   --color-border: #d1d1d1;
   --color-border-secondary: #D6DDEB;
+  --color-border-third: #8596A3;
+
+
   --color-background: #f5f5f5;
   --color-background-secondary: #F8F8FD;
-  --color-text: #515B6F;
+
+  --color-text-primary: #25324B;
   --color-text-secondary: #9DABB5;
-  --color-text-placeholder: #999;
+
+
   --color-text-error: #d9534f;
   --color-text-success: #5cb85c;
   --color-text-warning: #f0ad4e;
