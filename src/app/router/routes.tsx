@@ -14,18 +14,37 @@ import CompanyProfile from "@/feature/companyProfile/pages/CompanyProfile";
 import loginLoader from "@/feature/auth/services/loginLoader";
 import signupLoader from "@/feature/auth/services/signupLoader";
 import DashboardLayout from "@/feature/dashboard/layout/DashboardLayout";
-import Dashboard from "@/feature/dashboard/pages/Dashboard";
-import DashboardInterviewChatbot from "@/feature/dashboard/pages/DashboardInterviewChatbot";
+import Dashboard from "@/feature/dashboard/pages/Dashboard/Dashboard";
+import DashboardInterviewChatbot from "@/feature/dashboard/pages/InterviewChatbot/DashboardInterviewChatbot";
+import MyApplications from "@/feature/dashboard/pages/MyApplications/MyApplications";
+import FindJobs from "@/feature/dashboard/pages/FindJobs/FindJobs";
+import DashboardJobDescription from "@/feature/dashboard/pages/FindJobs/JobDescription/DashboardJobDescription";
+import DashboardBrowseCompanies from "@/feature/dashboard/pages/BrowseCompanies/DashboardBrowseCompanies";
+import Profile from "@/feature/dashboard/pages/Profile/Profile";
+import landingLoader from "@/feature/landing/services/landingLoader";
+import dashboardLoader from "@/feature/dashboard/servieces/dashboardLoader";
+import Settings from "@/feature/dashboard/pages/Settings/Settings";
+import MyProfile from "@/feature/dashboard/pages/Settings/components/my-profile/MyProfile";
+import LoginDetails from "@/feature/dashboard/pages/Settings/components/login-detials/LoginDetails";
+import Messages from "@/feature/dashboard/pages/Messages/Messages";
+import MessagesChat from "@/feature/dashboard/pages/Messages/MessagesChat/MessagesChat";
+import logoutLoader from "@/feature/dashboard/servieces/logoutLoader";
 
 const router = createBrowserRouter([
   {
     path:'/',
     Component:LandingLayout,
+    loader:landingLoader ,
     children:
     [
       {
         index:true,
         Component: Landing
+      },
+      {
+        path: 'logout',
+        loader: logoutLoader
+
       },
       {
         path: 'companies',
@@ -103,6 +122,7 @@ const router = createBrowserRouter([
   {
     path: 'dashboard',
     Component: DashboardLayout,
+    loader: dashboardLoader,
     children:
     [
       {
@@ -115,7 +135,13 @@ const router = createBrowserRouter([
       },
       {
         path: 'messages',
-        Component: null
+        Component: Messages,
+        children: [
+          {
+            path:':id',
+            Component: MessagesChat
+          }
+        ]
       },
       {
         path: 'interview-chatbot',
@@ -123,19 +149,47 @@ const router = createBrowserRouter([
       },
       {
         path: 'my-applications',
-        Component: null
+        Component: MyApplications
       },
       {
         path: 'find-jobs',
-        Component: null
+        children: [
+          {
+            index: true,
+            Component: FindJobs
+          },
+          {
+            path: ':id',
+            Component: DashboardJobDescription
+          }
+        ]
+      },
+      {
+        path: 'settings',
+        Component: Settings,
+        children: [
+          {
+            index: true, 
+            element: <Navigate to='/dashboard/settings/my-profile' />
+          },
+          {
+            path: 'my-profile',
+            Component: MyProfile
+          },
+          {
+            path: 'login-details',
+            Component: LoginDetails
+          }
+        ]
+
       },
       {
         path: 'browse-companies',
-        Component: null
+        Component: DashboardBrowseCompanies
       },
       {
-        path: 'my-public-profile',
-        Component: null
+        path: 'profile',
+        Component: Profile
       }
     ]
   },

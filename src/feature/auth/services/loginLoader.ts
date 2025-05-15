@@ -3,7 +3,7 @@ import { redirect } from "react-router-dom";
 const loginLoader = async () => {
     const user = useUserData()
     if(user){
-        return redirect('/')
+        return redirect('/dashboard')
     }
     return null
 }

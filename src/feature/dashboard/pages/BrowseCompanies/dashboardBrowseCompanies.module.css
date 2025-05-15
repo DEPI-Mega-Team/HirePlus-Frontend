@@ -1,0 +1,17 @@
+.search-companies-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    width: 90%;
+    margin: 0 auto;
+    gap: 3rem;
+    padding: 2rem;
+
+}
+
+.search-companies-container-searchbar {
+    grid-column: 1 / -1;
+}
+
+.search-companies-container__pagination {
+    grid-column: 1 / -1;
+}

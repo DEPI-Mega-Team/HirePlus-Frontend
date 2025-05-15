@@ -1,0 +1,139 @@
+.container {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px;
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1A1A1A;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+}
+
+.searchButton, .filterButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    background: #FFFFFF;
+    cursor: pointer;
+    font-size: 14px;
+    color: #6B7280;
+    transition: all 0.2s ease;
+}
+
+.searchButton:hover, .filterButton:hover {
+    background: #F9FAFB;
+}
+
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    font-size: 1.6rem;
+    font-family: var(--font-family);
+}
+
+.table th {
+    text-align: left;
+    padding: 12px;
+    color: #6B7280;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.table td {
+    padding: 16px 12px;
+    background: #F9FAFB;
+    font-size: 14px;
+}
+.evenRow td{
+    background: white;
+}
+
+.table tr td:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.table tr td:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.company {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.companyLogo {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.status {
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.inreview {
+    background: #FEF3C7;
+    color: #92400E;
+}
+
+.shortlisted {
+    background: #E0F2FE;
+    color: #075985;
+}
+
+.offered {
+    background: #D1FAE5;
+    color: #065F46;
+}
+
+.interviewing {
+    background: #EDE9FE;
+    color: #5B21B6;
+}
+
+.unsuitable {
+    background: #FEE2E2;
+    color: #991B1B;
+}
+
+.moreButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.moreButton:hover {
+    background: #E5E7EB;
+}
+
+.moreButton img {
+    width: 16px;
+    height: 16px;
+}

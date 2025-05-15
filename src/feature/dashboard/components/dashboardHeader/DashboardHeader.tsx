@@ -8,9 +8,7 @@ const DashboardHeader = ({title}: {title: string}) => {
             <h1>{title}</h1>
             <div className={styles['dashboard-header-actions']}>
                 <button className={styles['dashboard-header-actions-button']}>
-                   <Link to="/">
-                    Back to Home Page
-                   </Link>
+                   <Link to="/logout">Logout</Link>
                 </button>
             </div>
         </div>

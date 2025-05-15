@@ -7,22 +7,23 @@ const LoginAction = async ({request} : {request:Request}) => {
     const password = await formData.get('password') as string
     const { login } = authAPI()
     console.log(email, password)
-    if(!API_BASE_URL){
-        console.log('API_BASE_URL is not defined')
-        // return redirect('/')
-        return {error: 'API_BASE_URL is not defined'}
+    if(API_BASE_URL){
+        const response = await login({ email, password })
+        console.log(response)
+        if (response.ok) {
+            const data = await response.json()
+            console.log("login successful");
+            console.log(data);
+            return { user: data };
+        }
+        else {
+            return { error: 'Login failed' }
+        }
     }
-    const response = await login({email, password})
-    console.log(response)
-    if(response.ok){
-        const data = await response.json()
-        console.log("login successful");
-        console.log(data);
-        return {user: data};        
+    else 
+    {
+        const user = {email: "ahmed12@gmail.com", password: "123"}
+        return {user}
     }
-    else{
-        return {error: 'Login failed'}
-    }
-    
 }
 export default LoginAction;

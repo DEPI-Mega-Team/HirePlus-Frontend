@@ -4,7 +4,7 @@ import ProgressBar from "@/shared/components/progressBar/ProgressBar";
 import { Job } from "@/shared/types/job";
 import styles from "./searchJobList.module.css";
 
-const SearchJobList = ({id, jobTitle, company, location, jobType, categoryNames, numberOfApplicants, capacity}: Job) => {
+const SearchJobList = ({id, jobTitle, company, location, jobType, categoryNames, numberOfApplicants, capacity, onClick}: Job) => {
     return (
         <div className={styles['search-job-list-container']}>
             <div>
@@ -27,7 +27,7 @@ const SearchJobList = ({id, jobTitle, company, location, jobType, categoryNames,
                 </div>
             </div>
             <div className={styles['search-job-list-button-container']}>
-                    <Button filled={true}>Apply</Button>
+                    <Button filled={true} onClick={onClick}>Apply</Button>
                     <ProgressBar progress={(numberOfApplicants / capacity) * 100} />
             </div>
 

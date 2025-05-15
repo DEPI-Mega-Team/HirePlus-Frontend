@@ -1,30 +1,29 @@
-import CheckboxList from "@/shared/components/checkboxList/CheckboxList";
-import Pagination from "@/shared/components/pagination/Pagination";
-import { useState } from "react";
-import styles from "./searchJobs.module.css";
-import mockJobs from "@/shared/mockData/jobs";
-import { Job } from "@/shared/types/job";
-import SearchJobList from "../../components/SearchJobList";
-import SecondHero from "@/shared/components/secondHero/SecondHero";
-const Search = () => {
-
+import CheckboxList from '@/shared/components/checkboxList/CheckboxList';
+import styles from './findJobs.module.css'
+import Pagination from '@/shared/components/pagination/Pagination';
+import Jobs from '@/shared/mockData/jobs';
+import { use, useState } from 'react';
+import SearchJobList from '@/feature/search/components/SearchJobList';
+import mockJobs from '@/shared/mockData/jobs';
+import DashboardHeader from '../../components/dashboardHeader/DashboardHeader';
+import SearchBar from '@/shared/components/searchBar/SearchBar';
+import { useNavigate } from 'react-router';
+const FindJobs = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(10);
     const [numberOfResults, setNumberOfResults] = useState(100);
-    const [jobs, setJobs] = useState<Job[]>(mockJobs);
-
     const handlePageChange = (page: number) => {
         setCurrentPage(page);
     }
-
+    const navigate = useNavigate();
     return (
-        <div>
-            <SecondHero />
-
+        <>
+            <DashboardHeader title='Find Jobs'/>
             <div className={styles['search-container-jobs-container']}>
-
+                <div className={styles['searchbar-container']}>
+                    <SearchBar />
+                </div>
                 <div className={styles['search-container']}>
-
                     <div>
                         <CheckboxList title="Type of Employment" options={["Full-time", "Part-time", "Remote", "Internship", "Contract"]} />
                         <CheckboxList title="Categories " options={["Design", "Sales", "Marketing", "Business", "Technology", "Finance", "Engineering"]} />
@@ -37,8 +36,8 @@ const Search = () => {
                     <p className={styles['job-list-container-text']}>Showing {numberOfResults} results</p>
                     <div className={styles['search-container-jobs-list-container']}>
                         {
-                            jobs.map((job, idx) => (
-                                idx <= 7 && <SearchJobList key={idx} {...job} />
+                            mockJobs.map((job, idx) => (
+                                idx <= 7 && <SearchJobList key={idx} {...job} onClick={() => { navigate('/dashboard/find-jobs/2') }} />
                             ))
                         }
                     </div>
@@ -46,8 +45,9 @@ const Search = () => {
             </div>
             <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
 
-        </div>
+        </>
     )
 }
 
-export default Search;
+
+export default FindJobs;

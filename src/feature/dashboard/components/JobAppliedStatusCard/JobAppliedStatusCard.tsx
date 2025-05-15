@@ -14,27 +14,27 @@ const JobAppliedStatusCard = (props : JobAppliedStatusCardProps | undefined) => 
     const total = data.reduce((acc, curr) => acc + curr.value, 0);
     return (
         <div className={styles['job-applied-status-card']}>
-            <h1>Job Applied Status</h1>
+            <h1 className={styles['job-applied-status-card-title']}>Job Applied Status</h1>
             <div className={styles['pie-chart-container']}>
                 <div className={styles['pie-chart']}>
-                <PieChart width={170} height={170}>
-                    <Pie
-                        data={data}
-                        innerRadius={50}
-                        outerRadius={70}
-                        startAngle={90}
-                        endAngle={450}
-                        paddingAngle={2}
-                        nameKey="name"
-                        dataKey="value"
-                    >
+                    <PieChart width={200} height={200}>
+                        <Pie
+                            data={data}
+                            innerRadius={70}
+                            outerRadius={90}
+                            startAngle={90}
+                            endAngle={450}
+                            paddingAngle={2}
+                            nameKey="name"
+                            dataKey="value"
+                        >
 
-                        <Cell fill={"#EAEBED"} />
-                        <Cell fill={"#293A48"} />
+                            <Cell fill={"#EAEBED"} />
+                            <Cell fill={"#293A48"} />
 
 
-                    </Pie>
-                </PieChart>
+                        </Pie>
+                    </PieChart>
                 </div>
                 <div className={styles['pie-chart-label-one']}>
                     <p>{(data[0].value * 100 / total).toFixed(0)}%</p>
