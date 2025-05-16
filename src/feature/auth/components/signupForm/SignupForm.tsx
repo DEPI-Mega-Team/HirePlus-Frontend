@@ -6,16 +6,14 @@ import { UserContextType, useUser } from "@/feature/auth/context/UserContext";
 import styles from "./signupForm.module.css";
 import LineSeparator from "@/shared/components/lineSeparator/LineSeparator";
 import googleIcon from "@/assets/icons/Google.svg";
-import { Link,useSubmit, useActionData } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useSubmit, useActionData } from "react-router-dom";
 import { useEffect } from "react";
 
 
-const LoginForm = ({setError}: {setError: (error: {error: string, task: string}) => void}) => {
-    const navigate = useNavigate();
+const SignupForm = ({ setError }: { setError: (error: { error: string, task: string }) => void }) => {
     const submit = useSubmit();
     const actionData = useActionData()
-    const { setAccountType, accountType } = useUser() as UserContextType;
+    const { accountType,setAccountType} = useUser() as UserContextType;
 
     const handleToggle = () => {
         setAccountType((prev) => prev === 'jobseeker' ? 'company' : 'jobseeker');
@@ -27,8 +25,8 @@ const LoginForm = ({setError}: {setError: (error: {error: string, task: string})
         submit(formData, { method: 'post' });
     };
     useEffect(() => {
-        if(actionData?.error){
-            setError({error: actionData.error, task: 'Signup'})
+        if (actionData?.error) {
+            setError({ error: actionData.error, task: 'Signup' })
         }
     }, [actionData])
     return (
@@ -57,4 +55,4 @@ const LoginForm = ({setError}: {setError: (error: {error: string, task: string})
     )
 }
 
-export default LoginForm;
+export default SignupForm;

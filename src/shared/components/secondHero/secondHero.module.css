@@ -12,11 +12,13 @@
 .search-container-hero-pattern2 {
     position: absolute;
     right: 0;
+    z-index: 0;
 }
 
 .search-container-hero-pattern3 {
     position: absolute;
     left: 0;
+    z-index: 0;
 }
 
 .search-container-hero-businessMan {
@@ -30,12 +32,15 @@
 .search-container-hero-title {
     font-size: 5rem;
     word-spacing: -1rem;
+    position:relative;
+    z-index: 1;
 }
 
 .search-container-hero-underline2 {
     position: absolute;
     bottom: 55%;
     left: 50%;
+    z-index: 1;
 }
 
 .search-container-hero-title-span {
@@ -55,10 +60,14 @@
 
 .search-container-hero-content-text {
     font-size: 2.4rem;
-}
-
-.search-container-hero-content-searchBar {
-    width: 150%;
     position: relative;
     z-index: 1;
 }
+
+.search-container-hero-content-searchBar {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+

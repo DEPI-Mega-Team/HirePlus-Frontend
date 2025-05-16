@@ -29,7 +29,7 @@ const BrowseCompanies = () => {
     const navigate = useNavigate();
   return (
     <div>
-        <SecondHero onSearch={(searchParams) => {navigate(`/search/companies?${new URLSearchParams(searchParams).toString()}`)}} />
+        <SecondHero title1='Industry' title2='Rating' onSearch={(searchParams) => {navigate(`/search/companies?${new URLSearchParams({industry:searchParams.key1, rating:searchParams.key2}).toString()}`)}} />
         <div className={styles['recommended-companies-container']}>
               <div className={styles['recommended-companies-header']}>
                   <h1>Recommended Companies</h1>
@@ -37,7 +37,9 @@ const BrowseCompanies = () => {
                   <div className={styles['recommended-companies-list']}>
                       {
                           recommendedCompanies.map((company) => (
-                              <CompanyBigCard key={company.name} {...company} />
+                              <button className={styles['company-button']} onClick={() => {navigate(`/companies/${company.companyId}`)}}>
+                                <CompanyBigCard key={company.name} {...company} />
+                              </button>
                           ))
                       }
                   </div>

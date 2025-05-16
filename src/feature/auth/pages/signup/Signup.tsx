@@ -7,18 +7,18 @@ import Man2 from '@/assets/imgs/Man2.png'
 import { useState } from "react";
 
 const Signup = () => {
-    const [error, setError] = useState<{error: string, task: string}>({error: '', task: ''})
+    const [error, setError] = useState<{ error: string, task: string }>({ error: '', task: '' })
     return (
         <>
             {error.error &&
-             <div onClick={() => setError({error: '', task: ''})}>
-                <ErrorModal error={error.error} task={error.task}/>
-             </div>
+                <div onClick={() => setError({ error: '', task: '' })}>
+                    <ErrorModal error={error.error} task={error.task} />
+                </div>
             }
             <div className={styles['signup-container']}>
                 <BaseImage person1={Man1} person2={Man2} />
                 <div className={styles['signup-container__formContainer']}>
-                    <SignupForm setError={setError}/>
+                    <SignupForm setError={setError} />
                 </div>
             </div>
         </>

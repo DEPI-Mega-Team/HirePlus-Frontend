@@ -20,20 +20,29 @@ const LoginForm = ({setError}: {setError: (error: {error: string, task: string})
     }, [actionData])
 
 
-    useEffect(() => {
-        console.log("actionData",actionData);
-        
-        if(actionData?.user){
-            console.log(actionData.user);
-            if(checkBoxValue){
-                localStorage.setItem('user', JSON.stringify(actionData.user))
+    useEffect(()=> {
+        console.log("actionData", actionData);
+        if (actionData?.USER) {
+            console.log('actionData.USER', actionData.USER);
+            if (checkBoxValue) {
+                localStorage.setItem('user', JSON.stringify(actionData.USER))
             }
-            else{
-                sessionStorage.setItem('user', JSON.stringify(actionData.user))
+            else {
+                sessionStorage.setItem('user', JSON.stringify(actionData.USER))
             }
-            navigate('/')   
+            navigate('/')
         }
-    }, [actionData])
+        else if (actionData?.COMPANY) {
+            console.log('actionData.COMPANY', actionData.COMPANY);
+            if (checkBoxValue) {
+                localStorage.setItem('company', JSON.stringify(actionData.COMPANY))
+            }
+            else {
+                sessionStorage.setItem('company', JSON.stringify(actionData.COMPANY))
+            }
+            navigate('/')
+        }
+    },[actionData])
     return (
         <>
         <div className={styles['form__container']}>

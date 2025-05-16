@@ -1,20 +1,19 @@
 import { Company } from "@/shared/types/company";
 import companyProfileAPI from "../api/companyProfileAPI";
-import mockCompanies from "@/shared/mockData/companies";
-const API_BASE_URL = import.meta.env.VITE_API_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const useCompanyProfileService = async (id: string) => {
 
-    let data: Company;
     if(API_BASE_URL)
     {
-        data = await companyProfileAPI(id);
+        const res = await companyProfileAPI(id);
+        if(res.ok)
+        {
+            const data = res.json();
+            return data
+        }
     }
-    else
-    {
-        data = mockCompanies[0];
-    }
-    return data;
+    return null;
 }
 
 export default useCompanyProfileService;
