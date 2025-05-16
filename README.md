@@ -67,7 +67,7 @@ npm run dev
 
 ### Installation
 ```bash
-git clone https://github.com/yourusername/HirePlus-Frontend.git
+git clone https://github.com/DEPI-Mega-Team/HirePlus-Frontend.git
 cd HirePlus-Frontend
 npm install
 ```
