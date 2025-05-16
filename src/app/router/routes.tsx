@@ -29,6 +29,7 @@ import LoginDetails from "@/feature/dashboard/pages/Settings/components/login-de
 import Messages from "@/feature/dashboard/pages/Messages/Messages";
 import MessagesChat from "@/feature/dashboard/pages/Messages/MessagesChat/MessagesChat";
 import logoutLoader from "@/feature/dashboard/servieces/logoutLoader";
+import Admin from "@/feature/admin/Admin";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         index:true,
         Component: Landing
+      },
+      {
+        path: 'admin',
+        Component: Admin
       },
       {
         path: 'logout',

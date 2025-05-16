@@ -1,0 +1,39 @@
+.container {
+    width: 60%;
+    margin: 0 auto;
+    font-size: 1.8rem;
+    padding: 2rem;
+}
+.all-companies{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+}
+
+.company {
+    display: flex;
+    gap: 2rem;
+    border: 1px solid black;
+    padding: 1rem;
+}
+.company > img {
+    width: 25px;
+    height: 25px;;
+}
+
+.admin-form > div {
+    display: flex;
+    gap: 2rem;
+}
+
+.admin-form > div > label {
+    flex-basis: 20%;
+}
+
+.job {
+    display: flex;
+    gap: 2rem;
+    border: 1px solid var(--color-border);
+    padding: 2rem;
+}

@@ -1,18 +1,19 @@
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
 import { Job } from "@/shared/types/job";
-import useLanding from "./useLandingAPI"
+import useLandingAPI from "../api/landingAPI"
 import mockJobs from '@/shared/mockData/jobs'
 
 const landingService = async () => {
-
-    const { getFeaturedJobs, getLatestJobs, getJobsByCategory } = useLanding();
+    
+    const {fetchFeaturedJobs, fetchJobsByCategory, fetchLatestJobs, fetchCompanyById } = useLandingAPI();
+    
     let featuredJobs: Job[] = []
     let latestJobs: Job[] = []
     let jobsByCategory: Job[] = []
 
-    const retFeaturedJobs = async () => {
+    const getFeaturedJobs = async () => {
         if(API_BASE_URL) {
-            const ret = await getFeaturedJobs();
+            const ret = await fetchFeaturedJobs();
             featuredJobs = ret; 
             return featuredJobs;
         }
@@ -21,9 +22,9 @@ const landingService = async () => {
             return featuredJobs;
         }
     }
-    const retLatestJobs = async () => {
+    const getLatestJobs = async () => {
         if(API_BASE_URL) {
-            latestJobs = await getLatestJobs();
+            latestJobs = await fetchLatestJobs();
             return latestJobs;
         }
         else {
@@ -31,9 +32,9 @@ const landingService = async () => {
             return latestJobs;
         }
     }
-    const retJobsByCategory = async () => {
+    const getJobsByCategory = async () => {
         if(API_BASE_URL) {
-            jobsByCategory = await getJobsByCategory();
+            jobsByCategory = await fetchJobsByCategory();
             return jobsByCategory;
         }
         else {
@@ -41,7 +42,14 @@ const landingService = async () => {
             return jobsByCategory;
         }
     }
-    return { retFeaturedJobs, retLatestJobs, retJobsByCategory }
+    const getCompanyById = async (id: number) => {
+        const company = await fetchCompanyById(id);
+        if(company)
+            return company
+        else
+            throw new Error('returned company is undefiend or null')
+    }
+    return { getFeaturedJobs, getLatestJobs, getJobsByCategory, getCompanyById }
 }
 export default landingService;
 

@@ -12,8 +12,8 @@ const Latest = () => {
     const navigate = useNavigate()
     useEffect(() => {
         (async () => {
-            const { retLatestJobs } = await landingService();
-            const latestJobs = await retLatestJobs();
+            const { getLatestJobs } = await landingService();
+            const latestJobs = await getLatestJobs();
             setLatestJobs(latestJobs)
             console.log('latestJobs',latestJobs);
         })()
@@ -29,7 +29,7 @@ const Latest = () => {
                 <div className={styles['latest-jobs-container']}>
                 {
                     latestJobs.map((job) => (
-                        <JobList key={job.jobId} {...job} onClick={()=>{navigate(`/job/${job.jobId}`)}} />
+                        <JobList key={job.jobId} {...job} />
                     ))
                 }
                 </div>

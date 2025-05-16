@@ -4,7 +4,7 @@ export interface Skill {
     skillName: string;
 }
 export interface Job {
-    jobId: string;
+    jobId: number;
     jobTitle: string;
     description: string;
     location: string;
@@ -12,8 +12,40 @@ export interface Job {
     postDate: string;
     expiredDate: string;
     experienceLevel: string;
-    skills: Skill[];
-    companyId: string;
-    onClick: () => void;
+    address: {
+        city: string,
+        country: string,
+        region: string,
+        street: string
+    }
+    skillIds: number[];
+    companyId: number;
 
 }
+
+
+/*
+
+
+
+{
+  "jobTitle": "string",
+  "description": "string",
+  "location": "string",
+  "jobType": "string",
+  "postDate": "2025-05-15T01:37:58.093Z",
+  "expiredDate": "2025-05-15T01:37:58.093Z",
+  "experienceLevel": "string",
+  "address": {
+    "city": "string",
+    "country": "string",
+    "region": "string",
+    "street": "string"
+  },
+  "companyId": 0,
+  "skillIds": [
+    0
+  ]
+}
+
+*/

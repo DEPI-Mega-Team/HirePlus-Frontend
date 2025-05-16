@@ -29,6 +29,16 @@
     position: relative;
 }
 
+.dashboard-layout-settings-button {
+    text-decoration: none;
+    color: var(--color-secondary);
+    font-size: 1.6rem;
+    font-family: var(--font-family);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
 .dashboard-layout-button {
     width: 100%;
     background-color: transparent;

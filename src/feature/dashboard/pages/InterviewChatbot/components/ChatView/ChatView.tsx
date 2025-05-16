@@ -1,25 +1,52 @@
 import styles from './chatView.module.css';
 import { Form } from 'react-router';
-import { FormEvent, useState } from 'react';
-const ChatView = ({}) => {
-    const [messages, setMessages] = useState([
-        "Hello! How can I assist you today?",
-        "I am here to help you with your interview preparation.",
-        "What specific topics would you like to discuss?",
-        "I can provide tips on resume writing, interview questions, and more.",
-        "Feel free to ask me anything related to job interviews."
-    ]);
+import { FormEvent, useEffect, useRef, useState } from 'react';
+import chatbotService from '../../services/chatbotService';
+
+
+
+interface chatViewProps {
+    name: string;
+    jobTitle: string;
+    skills: { value: string, label: string }[];
+    questionsCount: number;
+    interviewType: string;
+}
+
+
+const ChatView: React.FC<chatViewProps> = ({ name, jobTitle, skills, questionsCount, interviewType }) => {
+    const [messages, setMessages] = useState([] as string[]);
+    const chatContainer = useRef<HTMLDivElement | null>(null)
     const [inputMessage, setInputMessage] = useState('');
-    const mockBotProfile = 
+    const [is_chatting, setIs_Chatting] = useState(false)
+    const mockBotProfile =
     {
         title: "Jana Maher",
         description: "AI Interview Coach",
 
     }
-    
-    const handleSubmit = (e: FormEvent) => {
+    const startSession = async () => {
+        setIs_Chatting(true)
+        const { getInterview } = chatbotService();
+        const data = await getInterview(jobTitle, name, interviewType, questionsCount, skills, messages);
+        setMessages(prev => [...prev, data.response])
+
+    }
+    useEffect((() => {
+        const div = chatContainer.current as HTMLDivElement
+        div.scrollIntoView({ behavior: 'smooth' });
+    }), [messages])
+
+    const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        setMessages((prev) => [...prev,inputMessage])
+        console.log("SEND BUTTON HAS BEEN PRESSED");
+        const newMessages = [...messages, inputMessage]
+        setMessages((prev) => [...prev, inputMessage])
+        setInputMessage('')
+        const { getChat } = chatbotService();
+        const data = await getChat(1, inputMessage, jobTitle, name, interviewType, questionsCount, skills, newMessages)
+        console.log(data);
+        setMessages((prev) => [...prev, data.response])
     }
     return (
         <div className={styles['chat-view']}>
@@ -31,19 +58,29 @@ const ChatView = ({}) => {
             <div className={styles['chat-message-form-container']}>
                 <div className={styles['chat-messages-container']}>
                     {messages.map((message, idx) => (
-                        <div key={idx} className={`${styles['chat-message']} ${idx%2 === 0?styles['this-message']:''}`}>
+                        <div key={idx} className={`${styles['chat-message']} ${idx % 2 === 1 ? styles['this-message'] : ''}`}>
                             {message}
                         </div>
                     ))}
+                    <div ref={chatContainer} />
                 </div>
-            <Form method="get" onSubmit={handleSubmit} className={styles['chat-input-form']}>
-                <div className={styles['chat-input-container']}>
-                    <input type="text" value={inputMessage} onChange={(e) => {setInputMessage(e.target.value)}} placeholder="Type your message..." />
-                    <button type="submit">Send</button>
-                </div>
-            </Form>
+                <Form method="POST" onSubmit={handleSubmit} className={styles['chat-input-form']}>
+                    <div className={styles['chat-input-container']}>
+                        {
+                            !is_chatting ?
+                                (
+                                    <button className={styles['chat-input-container-start-button']} type='button' onClick={startSession}>Start Session</button>) :
+                                (
+                                    <>
+                                        <input type="text" value={inputMessage} onChange={(e) => { setInputMessage(e.target.value) }} placeholder="Type your message..." />
+                                        <button type="submit">Send</button>
+                                    </>
+                                )
+                        }
+                    </div>
+                </Form>
             </div>
-            
+
         </div>
     );
 }

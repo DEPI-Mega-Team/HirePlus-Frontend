@@ -8,8 +8,8 @@ const Featured = () => {
     const [featuredJobs, setFeaturedJobs] = useState<Job[]>([])
     useEffect(() => {
         (async () => {
-            const { retFeaturedJobs } = await landingService();
-            const featuredJobs = await retFeaturedJobs();
+            const { getFeaturedJobs } = await landingService();
+            const featuredJobs = await getFeaturedJobs();
             setFeaturedJobs(featuredJobs)
         })()
     }, [])

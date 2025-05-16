@@ -1,5 +1,5 @@
 export interface Company {
-    id: string;
+    companyId: number;
     name: string;
     description: string;
     industry: string;
@@ -7,5 +7,5 @@ export interface Company {
     website: string;
     size: string;
     rating: number;
-    logo?: string;
+    logo: string;
 }
