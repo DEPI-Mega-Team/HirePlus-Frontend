@@ -1,7 +1,9 @@
 .company-profile-container {
     background-color: var(--color-gradient-two);
     position: relative;
-    height: 300px
+    height: auto;  
+    font-size: 1.8rem;
+
 }
 
 .company-profile-container__pattern4 {
@@ -10,6 +12,7 @@
     left: 0;
     object-fit: contain;
     height: 100%;
+    z-index: 1;
 }
 
 .company-profile-container__pattern5 {
@@ -18,4 +21,27 @@
     right: 0; 
     height: 100%;
     object-fit: contain;
+    z-index: 1;
+}
+
+.company-profile {
+    width: 80%;
+    margin: 0 auto;
+    padding : 5rem;
+    position:relative;
+}
+
+.company-profile-about {
+    background-color: white;
+
+}
+.company-profile-about-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 10rem 1rem;
+
+}
+
+.big-container {
+    font-size: 1.8rem;
 }

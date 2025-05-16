@@ -7,17 +7,19 @@ import dropdownArrow from '@/assets/icons/ArrowDown.svg';
 
 
 interface SearchBarProps {
-  onSearch?: (searchParams: { keyword: string; location: string }) => void;
+  onSearch?: (searchParams: { key1: string; key2: string }) => void;
+  title1:string;
+  title2:string;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
-  const [keyword, setKeyword] = useState('');
-  const [location, setLocation] = useState('');
+const SearchBar: React.FC<SearchBarProps> = ({ onSearch, title1, title2 }) => {
+  const [key1, setKeyword] = useState('');
+  const [key2, setLocation] = useState('');
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (onSearch) {
-      onSearch({ keyword, location });
+      onSearch({ key1, key2 });
     }
   };
 
@@ -29,11 +31,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
             <img className={styles['searchIcon']} src={searchIcon} alt="search icon" />
             <input
               type="text"
-              value={keyword}
+              value={key1}
               onChange={(e) => setKeyword(e.target.value)}
-              placeholder="Job title or keyword"
+              placeholder={title1}
               className={styles.input}
-              aria-label="Job title or keyword"
+              aria-label={title1}
             />
           </div>
           
@@ -43,11 +45,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
             <img className={styles['locationIcon']} src={locationIcon} alt="location icon" />
             <input
               type="text"
-              value={location}
+              value={key2}
               onChange={(e) => setLocation(e.target.value)}
-              placeholder="Location"
+              placeholder={title2}
               className={styles.input}
-              aria-label="Location"
+              aria-label={title2}
             />
             <img className={styles['dropdownArrow']} src={dropdownArrow} alt="dropdown arrow" />
           </div>

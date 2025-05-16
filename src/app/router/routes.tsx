@@ -30,6 +30,8 @@ import Messages from "@/feature/dashboard/pages/Messages/Messages";
 import MessagesChat from "@/feature/dashboard/pages/Messages/MessagesChat/MessagesChat";
 import logoutLoader from "@/feature/dashboard/servieces/logoutLoader";
 import Admin from "@/feature/admin/Admin";
+import CompanyDashboard from "@/feature/companyDashboard/pages/CompanyDashboard";
+import CompanyDashboardJobPost from "@/feature/companyDashboard/pages/CompanyDashboardJobPost";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +51,31 @@ const router = createBrowserRouter([
       {
         path: 'logout',
         loader: logoutLoader
+
+      },
+      {
+        path: 'company',
+        children: [
+          {
+            index: true,
+            element: <Navigate to='/company/dashboard/'/>
+          },
+          {
+            path:'dashboard',
+            Component: CompanyDashboard,
+            children: [ 
+              {
+                index: true, 
+                Component: null
+              },
+              {
+
+                path: 'job-post',
+                Component: CompanyDashboardJobPost
+              }
+            ]
+          }
+        ]
 
       },
       {
@@ -90,6 +117,10 @@ const router = createBrowserRouter([
           {
             path: 'companies',
             Component: SearchCompanies
+          }, 
+          {
+            path: 'jobs',
+            Component: SearchJobs
           }
         ]
       }

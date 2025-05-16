@@ -6,17 +6,20 @@ import pattern3 from '@/assets/imgs/Pattern-3.png';
 import businessMan from '@/assets/imgs/black businessman in blue suit looking at phone.png';
 
 interface SecondHeroProps {
-    onSearch?: (searchParams: { keyword: string; location: string }) => void;
+    onSearch?: (searchParams: { key1: string; key2: string }) => void;
+    title1:string;
+    title2:string;
+
 }
 
-const SecondHero = ({ onSearch }: SecondHeroProps) => {
+const SecondHero = ({ onSearch, title1, title2 }: SecondHeroProps) => {
     return (
         <div className={styles['search-container-hero']}>
             <div className={styles['search-container-hero-content']}>
                 <h1 className={styles['search-container-hero-title']}> Find your <span className={styles['search-container-hero-title-span']}>dream job</span></h1>
                 <p className={styles['search-container-hero-content-text']}>Find your next career at companies like HubSpot, Nike, and Dropbox</p>
                 <span className={styles['search-container-hero-content-searchBar']}>
-                    <SearchBar onSearch={onSearch} />
+                    <SearchBar onSearch={onSearch} title1={title1} title2={title2} />
                 </span>
             </div>
             <img className={styles['search-container-hero-underline2']} src={underline2} alt="" />

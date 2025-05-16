@@ -28,8 +28,8 @@ const Header = () => {
           <div className={styles['header-nav__logo']}>
             <Logo position="relative" />
             <ul className={`${styles['header-tabs']} d-none`}>
-              <li><Tab title="Find Jobs" isActive={url.pathname.startsWith('/') && !url.pathname.startsWith('/companies')} to="/" /></li>
-              <li><Tab title="Browse Companies" isActive={url.pathname.startsWith('/companies')} to="/companies" /></li>
+              <li><Tab title="Find Jobs" isActive={url.pathname.startsWith('/') && !url.pathname.includes('companies')} to="/" /></li>
+              <li><Tab title="Browse Companies" isActive={url.pathname.includes('companies')} to="/companies" /></li>
             </ul>
           </div>
           {

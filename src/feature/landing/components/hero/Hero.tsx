@@ -23,7 +23,7 @@ const Hero = () => {
                         <p className={styles['hero-container__description']}>Great platform for the job seeker that searching for new career heights and passionate about startups.</p>
                         
                         <div className={styles['hero-container__search']}>
-                            <SearchBar onSearch={(params) => navigate(`/search?${new URLSearchParams(params).toString()}`)} />
+                            <SearchBar title1='Job Title' title2='Location' onSearch={(params) => navigate(`/search?${new URLSearchParams(params).toString()}`)} />
                         </div>
                     </div>
                     <img className={styles['hero-container__man-thumb']} src={manThumb} alt="man raising thumb" />

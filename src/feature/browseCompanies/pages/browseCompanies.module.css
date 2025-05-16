@@ -79,3 +79,8 @@
     width: 40%;
     object-fit: cover;
 }
+
+.company-button{
+    background-color: transparent;
+    border: none;
+}

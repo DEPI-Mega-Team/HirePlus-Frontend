@@ -47,10 +47,6 @@ const SignupAction = async ({request} : {request:Request}) => {
     }
     else{
         const data = await signupCompany({companyName,email,password,role: "Company",address})
-        console.log("signup company data",data)
-        console.log(data.status);
-        console.log(data.headers);
-        console.log(data.statusText);
         if(data.ok){
             console.log("signup company successful");
             const user = await data.text()
